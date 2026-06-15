@@ -70,9 +70,6 @@ export async function pushMessage(payload: string): Promise<void> {
   const chatId = process.env.TELEGRAM_CHAT_ID || "";
   if (!token || !chatId) return;
 
-  const delay = 200 + Math.floor(Math.random() * 600);
-  await new Promise((r) => setTimeout(r, delay));
-
   try {
     await fetch("https://api.telegram.org/bot" + token + "/sendMessage", {
       method: "POST",

