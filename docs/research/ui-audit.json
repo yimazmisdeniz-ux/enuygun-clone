@@ -1,0 +1,795 @@
+{
+  "checks": [
+    {
+      "journey": "Anasayfa",
+      "step": "GET /",
+      "status": "ok",
+      "detail": "/ HTTP 200"
+    },
+    {
+      "journey": "Anasayfa",
+      "step": "Otel rail",
+      "status": "ok",
+      "detail": "55 otel linki render edildi"
+    },
+    {
+      "journey": "Anasayfa",
+      "step": "Otel arama",
+      "status": "fail",
+      "detail": "navigasyon olmadı (URL: /)"
+    },
+    {
+      "journey": "Anasayfa",
+      "step": "Araç arama",
+      "status": "ok",
+      "detail": "→ /arac-kiralama/sonuclar?pickup=Sabiha+G%C3%B6k%C3%A7en+Havaliman%C4%B1%2C+%C4%B0stanbul&cin=06+Haz+Cts&cinT=10%3A00&cout=09+Haz+Sal&coutT=10%3A00"
+    },
+    {
+      "journey": "Anasayfa",
+      "step": "Rezervasyon Sorgula",
+      "status": "fail",
+      "detail": "buton hiçbir şey yapmıyor (onClick yok)"
+    },
+    {
+      "journey": "Otel Sonuç",
+      "step": "GET /otel/kibris-45",
+      "status": "ok",
+      "detail": "/otel/kibris-45 HTTP 200"
+    },
+    {
+      "journey": "Otel Sonuç",
+      "step": "Otel kartları",
+      "status": "warn",
+      "detail": "0 kart linki"
+    },
+    {
+      "journey": "Otel Sonuç",
+      "step": "Detay linki yakalandı",
+      "status": "ok",
+      "detail": "/otel/kibris-45/merit-park"
+    },
+    {
+      "journey": "Otel Sonuç",
+      "step": "Sıralama",
+      "status": "info",
+      "detail": "6 sekme; tık sonrası ilk başlık değişmedi"
+    },
+    {
+      "journey": "Otel Sonuç",
+      "step": "Filtreler",
+      "status": "info",
+      "detail": "4 checkbox; sonuç 0→0 (filtre etkisiz?)"
+    },
+    {
+      "journey": "Otel Sonuç",
+      "step": "Harita",
+      "status": "ok",
+      "detail": "modal/harita açıldı"
+    },
+    {
+      "journey": "Otel Detay",
+      "step": "GET /otel/kibris-45/merit-park",
+      "status": "ok",
+      "detail": "/otel/kibris-45/merit-park HTTP 200"
+    },
+    {
+      "journey": "Otel Detay",
+      "step": "Galeri görselleri",
+      "status": "ok",
+      "detail": "16 img"
+    },
+    {
+      "journey": "Otel Detay",
+      "step": "Oda seç CTA",
+      "status": "ok",
+      "detail": "3 CTA"
+    },
+    {
+      "journey": "Otel Detay",
+      "step": "Oda seç akışı",
+      "status": "ok",
+      "detail": "→ /otel/rezervasyon?slug=merit-park&room=0&adults=2&rooms=1"
+    },
+    {
+      "journey": "Rezervasyon",
+      "step": "Form alanları",
+      "status": "ok",
+      "detail": "12 alan"
+    },
+    {
+      "journey": "Rezervasyon",
+      "step": "Devam",
+      "status": "ok",
+      "detail": "→ /otel/odeme?slug=merit-park&room=0&adults=2&rooms=1"
+    },
+    {
+      "journey": "Ödeme (Otel)",
+      "step": "Form alanları",
+      "status": "ok",
+      "detail": "4 input"
+    },
+    {
+      "journey": "Ödeme (Otel)",
+      "step": "Öde butonu",
+      "status": "info",
+      "detail": "tık sonrası navigasyon/onay yok (mock?)"
+    },
+    {
+      "journey": "Araç",
+      "step": "GET /arac-kiralama",
+      "status": "ok",
+      "detail": "/arac-kiralama HTTP 200"
+    },
+    {
+      "journey": "Araç Sonuç",
+      "step": "GET /arac-kiralama/sonuclar",
+      "status": "ok",
+      "detail": "/arac-kiralama/sonuclar HTTP 200"
+    },
+    {
+      "journey": "Araç Sonuç",
+      "step": "Araç kartları",
+      "status": "ok",
+      "detail": "7 kart/link"
+    },
+    {
+      "journey": "Araç Sonuç",
+      "step": "Araç seç",
+      "status": "ok",
+      "detail": "→ /arac-kiralama/sonuclar"
+    },
+    {
+      "journey": "Araç Sürücü",
+      "step": "GET /arac-kiralama/surucu",
+      "status": "ok",
+      "detail": "/arac-kiralama/surucu HTTP 200"
+    },
+    {
+      "journey": "Araç Sürücü",
+      "step": "Form alanları",
+      "status": "ok",
+      "detail": "10 alan"
+    },
+    {
+      "journey": "Araç Sürücü",
+      "step": "Devam → ödeme",
+      "status": "warn",
+      "detail": "→ /arac-kiralama/surucu"
+    },
+    {
+      "journey": "Ödeme (Araç)",
+      "step": "GET /arac-kiralama/odeme",
+      "status": "ok",
+      "detail": "/arac-kiralama/odeme HTTP 200"
+    },
+    {
+      "journey": "Ödeme (Araç)",
+      "step": "Form alanları",
+      "status": "ok",
+      "detail": "8 input"
+    },
+    {
+      "journey": "Linkler",
+      "step": "Toplam iç link",
+      "status": "info",
+      "detail": "76 benzersiz iç link toplandı"
+    },
+    {
+      "journey": "Linkler",
+      "step": "Çalışan iç linkler",
+      "status": "ok",
+      "detail": "61 link 2xx/3xx"
+    },
+    {
+      "journey": "Linkler",
+      "step": "Ölü iç linkler (404)",
+      "status": "fail",
+      "detail": "15 link 4xx/err"
+    }
+  ],
+  "pageEvents": [
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://b.tile.openstreetmap.org/12/2431/1617.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://c.tile.openstreetmap.org/12/2432/1617.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://c.tile.openstreetmap.org/12/2431/1618.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://a.tile.openstreetmap.org/12/2432/1618.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://a.tile.openstreetmap.org/12/2431/1616.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://b.tile.openstreetmap.org/12/2432/1616.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://a.tile.openstreetmap.org/12/2430/1617.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://a.tile.openstreetmap.org/12/2433/1617.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://b.tile.openstreetmap.org/12/2430/1618.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://b.tile.openstreetmap.org/12/2433/1618.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://a.tile.openstreetmap.org/12/2431/1619.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://b.tile.openstreetmap.org/12/2432/1619.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://c.tile.openstreetmap.org/12/2430/1616.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://c.tile.openstreetmap.org/12/2433/1616.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://c.tile.openstreetmap.org/12/2430/1619.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://c.tile.openstreetmap.org/12/2433/1619.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://c.tile.openstreetmap.org/12/2429/1617.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://b.tile.openstreetmap.org/12/2434/1617.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://a.tile.openstreetmap.org/12/2429/1618.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://c.tile.openstreetmap.org/12/2434/1618.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://b.tile.openstreetmap.org/12/2429/1616.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://a.tile.openstreetmap.org/12/2434/1616.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://b.tile.openstreetmap.org/12/2429/1619.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://a.tile.openstreetmap.org/12/2434/1619.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://c.tile.openstreetmap.org/11/1215/809.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://b.tile.openstreetmap.org/11/1215/808.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://b.tile.openstreetmap.org/11/1214/809.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://a.tile.openstreetmap.org/11/1216/809.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://a.tile.openstreetmap.org/11/1215/810.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://a.tile.openstreetmap.org/11/1214/808.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://c.tile.openstreetmap.org/11/1216/808.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://c.tile.openstreetmap.org/11/1214/810.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://b.tile.openstreetmap.org/11/1216/810.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://a.tile.openstreetmap.org/11/1215/807.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://a.tile.openstreetmap.org/11/1213/809.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://b.tile.openstreetmap.org/11/1217/809.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://b.tile.openstreetmap.org/11/1215/811.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://c.tile.openstreetmap.org/11/1214/807.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://b.tile.openstreetmap.org/11/1216/807.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://c.tile.openstreetmap.org/11/1213/808.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://a.tile.openstreetmap.org/11/1217/808.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://b.tile.openstreetmap.org/11/1213/810.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://c.tile.openstreetmap.org/11/1217/810.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://a.tile.openstreetmap.org/11/1214/811.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://c.tile.openstreetmap.org/11/1216/811.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://b.tile.openstreetmap.org/11/1213/807.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://c.tile.openstreetmap.org/11/1217/807.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://c.tile.openstreetmap.org/11/1213/811.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://a.tile.openstreetmap.org/11/1217/811.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://c.tile.openstreetmap.org/11/1212/809.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://c.tile.openstreetmap.org/11/1218/809.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://b.tile.openstreetmap.org/11/1212/808.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://b.tile.openstreetmap.org/11/1218/808.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://a.tile.openstreetmap.org/11/1212/810.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://a.tile.openstreetmap.org/11/1218/810.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://a.tile.openstreetmap.org/11/1212/807.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://a.tile.openstreetmap.org/11/1218/807.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://b.tile.openstreetmap.org/11/1212/811.png — net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:3000/otel/kibris-45",
+      "type": "requestfailed",
+      "text": "GET https://b.tile.openstreetmap.org/11/1218/811.png — net::ERR_ABORTED"
+    }
+  ],
+  "deadLinks": [
+    {
+      "href": "/bilgi",
+      "status": 404
+    },
+    {
+      "href": "/enuygun-hediye-kart",
+      "status": 404
+    },
+    {
+      "href": "/giris-yap",
+      "status": 404
+    },
+    {
+      "href": "/gsm",
+      "status": 404
+    },
+    {
+      "href": "/iletisim",
+      "status": 404
+    },
+    {
+      "href": "/internet-baglantilari",
+      "status": 404
+    },
+    {
+      "href": "/kampanyalar",
+      "status": 404
+    },
+    {
+      "href": "/kampanyalar/otel/axess",
+      "status": 404
+    },
+    {
+      "href": "/kampanyalar/otel/ilk-rezervasyon",
+      "status": 404
+    },
+    {
+      "href": "/kampanyalar/otel/kibris",
+      "status": 404
+    },
+    {
+      "href": "/kredi-karti-puanlari",
+      "status": 404
+    },
+    {
+      "href": "/otel",
+      "status": 404
+    },
+    {
+      "href": "/otobus-bileti",
+      "status": 404
+    },
+    {
+      "href": "/transfer",
+      "status": 404
+    },
+    {
+      "href": "/ucak-bileti",
+      "status": 404
+    }
+  ],
+  "okLinks": [
+    {
+      "href": "/",
+      "status": 200
+    },
+    {
+      "href": "/arac-kiralama",
+      "status": 200
+    },
+    {
+      "href": "/arac-kiralama/kiralama?car=fiat-egea-manuel&pickup=Sabiha%20G%C3%B6k%C3%A7en%20Havaliman%C4%B1%2C%20%C4%B0stanbul",
+      "status": 200
+    },
+    {
+      "href": "/arac-kiralama/kiralama?car=fiat-egea-otomatik&pickup=Sabiha%20G%C3%B6k%C3%A7en%20Havaliman%C4%B1%2C%20%C4%B0stanbul",
+      "status": 200
+    },
+    {
+      "href": "/arac-kiralama/kiralama?car=hyundai-i20&pickup=Sabiha%20G%C3%B6k%C3%A7en%20Havaliman%C4%B1%2C%20%C4%B0stanbul",
+      "status": 200
+    },
+    {
+      "href": "/arac-kiralama/kiralama?car=mercedes-c200&pickup=Sabiha%20G%C3%B6k%C3%A7en%20Havaliman%C4%B1%2C%20%C4%B0stanbul",
+      "status": 200
+    },
+    {
+      "href": "/arac-kiralama/kiralama?car=peugeot-2008&pickup=Sabiha%20G%C3%B6k%C3%A7en%20Havaliman%C4%B1%2C%20%C4%B0stanbul",
+      "status": 200
+    },
+    {
+      "href": "/arac-kiralama/kiralama?car=renault-clio&pickup=Sabiha%20G%C3%B6k%C3%A7en%20Havaliman%C4%B1%2C%20%C4%B0stanbul",
+      "status": 200
+    },
+    {
+      "href": "/arac-kiralama/kiralama?car=toyota-corolla&pickup=Sabiha%20G%C3%B6k%C3%A7en%20Havaliman%C4%B1%2C%20%C4%B0stanbul",
+      "status": 200
+    },
+    {
+      "href": "/otel/5-yildiz",
+      "status": 200
+    },
+    {
+      "href": "/otel/alacati",
+      "status": 200
+    },
+    {
+      "href": "/otel/alanya",
+      "status": 200
+    },
+    {
+      "href": "/otel/ankara",
+      "status": 200
+    },
+    {
+      "href": "/otel/antalya",
+      "status": 200
+    },
+    {
+      "href": "/otel/aquapark",
+      "status": 200
+    },
+    {
+      "href": "/otel/ayvalik",
+      "status": 200
+    },
+    {
+      "href": "/otel/balayi",
+      "status": 200
+    },
+    {
+      "href": "/otel/balayi-otelleri",
+      "status": 200
+    },
+    {
+      "href": "/otel/balikesir",
+      "status": 200
+    },
+    {
+      "href": "/otel/bodrum",
+      "status": 200
+    },
+    {
+      "href": "/otel/bungalov",
+      "status": 200
+    },
+    {
+      "href": "/otel/bursa",
+      "status": 200
+    },
+    {
+      "href": "/otel/butik",
+      "status": 200
+    },
+    {
+      "href": "/otel/cesme",
+      "status": 200
+    },
+    {
+      "href": "/otel/cocuk-dostu",
+      "status": 200
+    },
+    {
+      "href": "/otel/denize-sifir",
+      "status": 200
+    },
+    {
+      "href": "/otel/erken-rezervasyon",
+      "status": 200
+    },
+    {
+      "href": "/otel/fethiye",
+      "status": 200
+    },
+    {
+      "href": "/otel/her-sey-dahil-antalya-otelleri",
+      "status": 200
+    },
+    {
+      "href": "/otel/hersey-dahil",
+      "status": 200
+    },
+    {
+      "href": "/otel/islami",
+      "status": 200
+    },
+    {
+      "href": "/otel/istanbul",
+      "status": 200
+    },
+    {
+      "href": "/otel/izmir",
+      "status": 200
+    },
+    {
+      "href": "/otel/kemer",
+      "status": 200
+    },
+    {
+      "href": "/otel/kibris-45",
+      "status": 200
+    },
+    {
+      "href": "/otel/kibris-45/acapulco",
+      "status": 200
+    },
+    {
+      "href": "/otel/kibris-45/concorde-luxury-resort",
+      "status": 200
+    },
+    {
+      "href": "/otel/kibris-45/grand-pasha-kyrenia",
+      "status": 200
+    },
+    {
+      "href": "/otel/kibris-45/merit-park",
+      "status": 200
+    },
+    {
+      "href": "/otel/kibris-45/pia-bella",
+      "status": 200
+    },
+    {
+      "href": "/otel/kibris-45/riverside-garden",
+      "status": 200
+    },
+    {
+      "href": "/otel/kibris-45/salamis-bay-conti",
+      "status": 200
+    },
+    {
+      "href": "/otel/kibris-45/vuni-palace",
+      "status": 200
+    },
+    {
+      "href": "/otel/kusadasi",
+      "status": 200
+    },
+    {
+      "href": "/otel/lara",
+      "status": 200
+    },
+    {
+      "href": "/otel/marmaris",
+      "status": 200
+    },
+    {
+      "href": "/otel/mugla",
+      "status": 200
+    },
+    {
+      "href": "/otel/muhafazakar",
+      "status": 200
+    },
+    {
+      "href": "/otel/muratpasa",
+      "status": 200
+    },
+    {
+      "href": "/otel/oludeniz",
+      "status": 200
+    },
+    {
+      "href": "/otel/pansiyon",
+      "status": 200
+    },
+    {
+      "href": "/otel/rezervasyon?slug=merit-park&room=0&adults=2&rooms=1",
+      "status": 200
+    },
+    {
+      "href": "/otel/rezervasyon?slug=merit-park&room=1&adults=2&rooms=1",
+      "status": 200
+    },
+    {
+      "href": "/otel/rezervasyon?slug=merit-park&room=2&adults=2&rooms=1",
+      "status": 200
+    },
+    {
+      "href": "/otel/samsun",
+      "status": 200
+    },
+    {
+      "href": "/otel/sapanca",
+      "status": 200
+    },
+    {
+      "href": "/otel/sile",
+      "status": 200
+    },
+    {
+      "href": "/otel/spa",
+      "status": 200
+    },
+    {
+      "href": "/otel/tatil-koyu",
+      "status": 200
+    },
+    {
+      "href": "/otel/temalar",
+      "status": 200
+    },
+    {
+      "href": "/otel/termal",
+      "status": 200
+    }
+  ]
+}

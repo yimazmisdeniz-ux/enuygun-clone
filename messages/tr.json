@@ -1,0 +1,431 @@
+{
+  "DatePicker": {
+    "checkIn": "Giriş",
+    "checkOut": "Çıkış",
+    "nights": "{count, plural, one {# gece} other {# gece}}",
+    "apply": "Uygula",
+    "clear": "Temizle",
+    "selectDates": "Tarih seçin",
+    "selectCheckout": "Çıkış tarihini seçin"
+  },
+  "Common": {
+    "selectCta": "Seç",
+    "seeAll": "Tümünü gör",
+    "prev": "Önceki",
+    "next": "Sonraki",
+    "hotelCard": {
+      "priceNote": "2 kişi için 2 gecelik fiyat",
+      "fromPrice": "<price>{value}</price>'den itibaren",
+      "discountBadge": "%{pct} İndirim"
+    }
+  },
+  "Offer": {
+    "eyebrow": "Exclusive Fırsat",
+    "title": "Tüm otellerde <strong>%{pct}</strong> indirim",
+    "subtitle": "Sadece {hours} saat geçerli — bu fiyatlar bir daha gelmeyecek.",
+    "endsIn": "Bitmesine",
+    "hoursShort": "Saat",
+    "minutesShort": "Dakika",
+    "secondsShort": "Saniye"
+  },
+  "Header": {
+    "homeAria": "Bookera ana sayfa",
+    "currencyAria": "Para birimi seç",
+    "languageAria": "Dil seç",
+    "nav": {
+      "hotels": "Oteller",
+      "cars": "Araç Kiralama"
+    }
+  },
+  "Currency": {
+    "TRY": "Türk Lirası",
+    "USD": "ABD Doları",
+    "EUR": "Euro",
+    "GBP": "İngiliz Sterlini"
+  },
+  "Language": {
+    "tr": "Türkçe",
+    "en": "English"
+  },
+  "Home": {
+    "cyprusRailTitle": "Kıbrıs Otellerini Keşfedin",
+    "recommendedRailTitle": "Önerilen Oteller",
+    "seeAll": "Tümünü gör",
+    "hero": {
+      "title": "Uygun Fiyatlı Otel Ara",
+      "popularSearches": "Popüler aramalar",
+      "done": "Tamam",
+      "tabs": { "hotel": "Otel", "car": "Araç", "reservation": "Rezervasyon Sorgula" },
+      "tagline": {
+        "reservation": "Rezervasyonunu kolayca sorgula!",
+        "car": "En uygun araç kiralama fırsatları Bookera'da!",
+        "hotel": "En iyi tatil ve şehir otelleri Bookera'da!"
+      },
+      "hotel": {
+        "destLabel": "Şehir, İlçe, Tema, Otel Adı",
+        "destPlaceholder": "Şehir, ilçe, tema veya otel adı",
+        "hotelCount": "{count} otel",
+        "datesLabel": "Giriş ve Çıkış Tarihi",
+        "checkIn": "Giriş Tarihi",
+        "checkOut": "Çıkış Tarihi",
+        "guestsLabel": "Konuk Sayısı",
+        "search": "Otel bul"
+      },
+      "car": {
+        "pickupLabel": "Teslim Alış Yeri",
+        "pickupPlaceholder": "Şehir, havalimanı veya ofis",
+        "carCount": "{count} araç",
+        "pickupDateLabel": "Teslim Alış Tarihi",
+        "dropoffDateLabel": "Teslim Ediş Tarihi",
+        "time": "Saat",
+        "search": "Araç bul"
+      },
+      "guests": {
+        "summary": "{adults} Yetişkin{children, plural, =0 {} other {, # Çocuk}}, {rooms} Oda",
+        "adults": "Yetişkin",
+        "children": "Çocuk",
+        "rooms": "Oda",
+        "decrease": "{label} azalt",
+        "increase": "{label} artır"
+      },
+      "reservation": {
+        "pnrLabel": "Rezervasyon Numarası",
+        "pnrPlaceholder": "Rezervasyon numaranızı girin",
+        "surnameLabel": "Soyadınız",
+        "surnamePlaceholder": "Soyadınızı girin",
+        "submit": "Sorgula",
+        "errorEmpty": "Lütfen rezervasyon numaranızı ve soyadınızı girin.",
+        "notFound": "Girdiğiniz bilgilere ait bir rezervasyon bulunamadı. Bilgileri kontrol edip tekrar deneyin ya da <phone>0850 811 90 90</phone> numaralı çağrı merkezimizi arayın."
+      },
+      "searchChips": {
+        "0": "Erken Rezervasyon Otelleri",
+        "1": "Kıbrıs Otelleri",
+        "2": "Balayı Otelleri",
+        "3": "Her Şey Dahil Antalya Otelleri"
+      }
+    },
+    "popularRegions": {
+      "title": "Popüler Bölgeler",
+      "domestic": "Yurt İçi",
+      "international": "Yurt Dışı",
+      "hotelChip": "{count} Otel",
+      "regions": {
+        "turkiye": "Türkiye",
+        "antalya": "Antalya",
+        "mugla": "Muğla",
+        "izmir": "İzmir",
+        "kibris": "Kıbrıs"
+      }
+    },
+    "themedRails": {
+      "spa": "En iyi spa otelleri BOOKERA'da",
+      "erken-rezervasyon": "En iyi erken rezervasyon otelleri BOOKERA'da",
+      "cocuk-dostu": "En iyi çocuk dostu oteller BOOKERA'da",
+      "muhafazakar": "En iyi muhafazakar oteller BOOKERA'da",
+      "balayi": "En iyi balayı otelleri BOOKERA'da",
+      "bungalov": "En iyi bungalov oteller BOOKERA'da"
+    },
+    "holidayThemes": {
+      "title": "Tatil Temaları",
+      "items": {
+        "bungalov": "Bungalov oteller",
+        "termal": "Termal oteller",
+        "tatil-koyu": "Tatil köyleri",
+        "pansiyon": "Pansiyonlar",
+        "butik": "Butik oteller",
+        "5-yildiz": "5 yıldızlı oteller",
+        "hersey-dahil": "Her şey dahil oteller",
+        "islami": "Muhafazakar oteller",
+        "balayi": "Balayı otelleri",
+        "cocuk-dostu": "Çocuk dostu oteller",
+        "denize-sifir": "Denize sıfır oteller",
+        "aquapark": "Aquaparklı oteller"
+      }
+    },
+    "whyUs": {
+      "title": "Ucuz Oteli Bulmak İçin Neden Bookera.com'u Kullanmalıyım?",
+      "items": {
+        "0": { "title": "Sayısız seçenek", "desc": "Bookera ile 1000'lerce otel tercihlerine göre filtreleyerek saniyeler içinde sana en uygun oteli bulabilirsin." },
+        "1": { "title": "En uygun otel", "desc": "Kafanızı karıştıran fiyat ve hizmet seçenekleri arasında kaybolmayın, tercihlerinizi belirleyip size en uygun otelde odanızı hemen ayırtın." },
+        "2": { "title": "Hızlı ve kolay", "desc": "Bookera sayesinde aradığın oteli bulmak için sadece birkaç saniyeye ihtiyacın var." },
+        "3": { "title": "Güvenle al", "desc": "Tüm ödeme işlemlerin, dünyanın önde gelen güvenlik sertifikası şirketi GlobalSign koruması altındadır." }
+      }
+    },
+    "faq": {
+      "title": "Sıkça Sorulan Sorular",
+      "items": {
+        "0": { "q": "BOOKERA en uygun otel fiyatlarını nasıl sunuyor?", "a": "Türkiye'nin seyahat sitesi BOOKERA, her bütçeye uygun otel fiyatları ile konaklama yapmak istediğiniz destinasyon ve tarihe göre binlerce otel seçeneğini karşılaştırır ve listeler. Listelenen otelleri fiyata göre artan ya da azalan, puan, merkeze yakınlık ve ilgiye göre sıralayabilirsiniz. Konuk değerlendirmesi, pansiyon tipi, rezervasyon iptali, tema gibi birçok filtreden yararlanarak kendinize en uygun oteli seçebilirsiniz." },
+        "1": { "q": "BOOKERA'da otel rezervasyonumu nasıl yapabilirim?", "a": "BOOKERA'dan otel rezervasyonu yapmak için web sitemizi veya mobil uygulamamızı kullanabilirsiniz. Konaklamak istediğiniz yeri ve tarihi seçerek binlerce tesisi karşılaştırabilir, size en uygun oteli ve odayı seçerek güvenle rezervasyon yapabilirsiniz. BOOKERA'a üye olarak saniyeler içinde işleminizi tamamlayabilirsiniz." },
+        "2": { "q": "BOOKERA'da yurt dışı otel rezervasyonu yapabilir miyim?", "a": "BOOKERA'dan dünyanın dört bir yanında hizmet veren binlerce yurt dışı otelini konaklama yapacağınız yer ve tarihe göre listeleyebilirsiniz. Çok sayıda tema seçeneği içinden size uygun oteli tercih ederek kolay ve güvenilir şekilde rezervasyon yaptırabilirsiniz." },
+        "3": { "q": "Tesis ve oda bilgileri hakkında daha fazla bilgi alabilir miyim?", "a": "Seçtiğiniz tesis ve oda hakkında daha fazla bilgi almak isterseniz 0850 811 90 90 numaralı çağrı merkezimiz üzerinden seyahat danışmanlarımızla iletişime geçebilirsiniz." },
+        "4": { "q": "Otel rezervasyonu yaparken nelere dikkat etmeliyim?", "a": "Otel rezervasyonu yaparken konaklama sırasında herhangi bir sıkıntı yaşamamak için dikkat etmeniz gereken bazı noktalar bulunur. Otelin konumu ve yıldızı seçim yaparken etkili olan kriterlerin başında gelir. Ayrıca ek ücretler, evcil hayvan politikası, transfer ve restoran gibi hizmetler rezervasyon sırasında göz önünde bulundurmanız gerekenler arasında yer alır." },
+        "5": { "q": "BOOKERA'da otel rezervasyonumu iptal edebilir miyim?", "a": "BOOKERA'dan otel rezervasyonu yaparken filtre kısmında yer alan rezervasyon koşulları bölümünde ücretsiz iptal seçeneği bulunur. Bu filtreyi seçerek yapacağınız ücretsiz iptal kapsamındaki otel rezervasyonlarınızı iptal edebilirsiniz. Bunun dışındaki tüm iptal ve değişiklik işlemleriniz için 0850 811 90 90 numaralı ücretsiz çağrı merkezimizi arayabilirsiniz." },
+        "6": { "q": "BOOKERA işlemlerimin güvenliğini nasıl sağlıyor?", "a": "BOOKERA üzerinden yaptığınız işlemlerin tamamı SSL sertifikası ile güvence altında. Ayrıca otel rezervasyonu yaparken ödeme adımında 3D Security güvencesi sunulur. Tüm ödeme işlemleriniz dünyanın önde gelen güvenlik sertifikası şirketi DigiCert ile koruma altına alınır." }
+      }
+    },
+    "footer": {
+      "popularRegions": "Popüler Bölgeler",
+      "popularThemes": "Popüler Temalar",
+      "tagline": "Otel ve araç kiralama hizmetlerinde en uygun fiyat.",
+      "copyright": "© 2026 BOOKERA — Tüm hakları saklıdır.",
+      "ssl": "DigiCert SSL ile koruma altındadır.",
+      "regions": { "0": "Alanya Otelleri", "1": "Çeşme Otelleri", "2": "Kemer Otelleri", "3": "Side Otelleri", "4": "Didim Otelleri", "5": "Kıbrıs Otelleri", "6": "Uludağ Otelleri", "7": "Ağva Otelleri" },
+      "themes": { "0": "Balayı Otelleri", "1": "Termal Oteller", "2": "Erken Rezervasyon Otelleri", "3": "Muhafazakar Oteller", "4": "Spa Otelleri", "5": "Çocuk Dostu Oteller", "6": "Bungalov Evleri", "7": "Kayak Otelleri" },
+      "columns": {
+        "hotel": { "title": "Otel", "links": { "0": "Otel", "1": "İstanbul Otelleri", "2": "Antalya Otelleri", "3": "Bodrum Otelleri", "4": "İzmir Otelleri", "5": "Marmaris Otelleri", "6": "Fethiye Otelleri" } },
+        "car": { "title": "Araç Kiralama", "links": { "0": "Araç Kiralama" } }
+      },
+      "legal": { "title": "Yasal", "privacy": "Gizlilik Politikası", "cookies": "Çerez Politikası", "terms": "Kullanım Şartları", "security": "Güvenlik" }
+    }
+  },
+  "Search": {
+    "pageTitle": "{place} Otelleri",
+    "saveSearch": "Aramayı favorilere ekle",
+    "share": "Paylaş",
+    "sortCriteria": "Sıralama Kriterleri",
+    "noResults": "Seçtiğiniz filtrelere uygun otel bulunamadı.",
+    "card": {
+      "addFavorite": "Favorilere ekle",
+      "prevPhoto": "Önceki fotoğraf",
+      "nextPhoto": "Sonraki fotoğraf",
+      "reviews": "{n} yorum",
+      "discount": "%{pct} İndirim",
+      "totalForNights": "{n} gece toplam tutar",
+      "select": "Seç",
+      "roomsLeft": "Sadece {n} oda kaldı",
+      "bestOption": "En İyi Seçim"
+    },
+    "map": {
+      "show": "Haritada göster",
+      "hide": "Haritayı gizle",
+      "close": "Kapat",
+      "hotelCount": "{n} otel",
+      "totalForNights": "{n} gece toplam"
+    },
+    "filters": {
+      "title": "Filtrele",
+      "totalRoomPrice": "Toplam Oda Fiyatı",
+      "minPrice": "En az TL",
+      "maxPrice": "En çok TL",
+      "applyPrice": "Fiyatı uygula",
+      "region": "Bölge",
+      "boardType": "Pansiyon Tipi",
+      "showLess": "Daha az göster",
+      "showMore": "Daha fazla göster ({n})"
+    },
+    "sort": {
+      "priceAsc": "Fiyat Artan",
+      "priceDesc": "Fiyat Azalan",
+      "recommended": "İlgiye Göre",
+      "ratingDesc": "Puan Azalan",
+      "ratingPrice": "Yüksek Puan - Düşük Fiyat"
+    },
+    "searchBar": {
+      "destinationLabel": "Şehir, İlçe, Tema, Otel Adı",
+      "destinationPlaceholder": "Şehir, ilçe, tema veya otel adı",
+      "hotelCount": "{n} otel",
+      "datesLabel": "Giriş ve Çıkış Tarihi",
+      "checkIn": "Giriş Tarihi",
+      "checkOut": "Çıkış Tarihi",
+      "guestsLabel": "Konuk Sayısı",
+      "done": "Tamam",
+      "searchAgain": "Yeniden ara"
+    },
+    "guests": {
+      "adults": "Yetişkin",
+      "children": "Çocuk",
+      "rooms": "Oda",
+      "decrease": "{label} azalt",
+      "increase": "{label} artır"
+    }
+  },
+  "Detail": {
+    "nav": { "hotel": "Otel", "rooms": "Odalar", "reviews": "Yorumlar", "features": "Otel Özellikleri", "transport": "Ulaşım", "rules": "Otel Kuralları" },
+    "breadcrumb": { "hotel": "Otel" },
+    "allCityHotels": "Tüm {city} Otelleri",
+    "reviewCountInline": "{count} yorum",
+    "showOnMap": "Haritada göster",
+    "share": "Paylaş",
+    "addToFavorites": "Favorilere ekle",
+    "makeReservation": "Rezervasyon yap",
+    "close": "Kapat",
+    "previous": "Önceki",
+    "next": "Sonraki",
+    "overview": { "showLess": "Daha az", "readMore": "Devamını oku" },
+    "reviews": {
+      "title": "Yorum ve Değerlendirmeler",
+      "verifiedNote": "%100 doğrulanmış müşteriler tarafından yapılan yorumlardır",
+      "evaluationCount": "{count} değerlendirme",
+      "sortBy": "Sırala:",
+      "mostRelevant": "En alakalı",
+      "guestType": "Konuk Tipi",
+      "all": "Hepsi",
+      "searchPlaceholder": "Yorumlarda ara",
+      "aiTitle": "Kullanıcılar En Çok Neyi Sevdi?",
+      "aiSubtitle": "Konukların en çok değindiği konuları aşağıda sıraladık.",
+      "aiDisclaimer": "Yorumları sizin için yapay zeka ile özetledik.",
+      "reviewDate": "Yorum tarihi:"
+    },
+    "features": { "title": "Otel Özellikleri" },
+    "amenities": {
+      "outdoorPool": "Açık havuz", "indoorPool": "Kapalı havuz", "aquapark": "Aquapark", "spaWellness": "SPA & Wellness",
+      "freeWifi": "Ücretsiz Wi-Fi", "privateBeach": "Özel plaj", "fitnessCenter": "Fitness merkezi", "restaurant": "Restoran",
+      "bar": "Bar", "kidsClub": "Çocuk kulübü", "roomService": "Oda servisi", "parking": "Otopark",
+      "reception24h": "24 saat resepsiyon", "airConditioning": "Klima", "meetingRoom": "Toplantı salonu", "accessible": "Engelli dostu"
+    },
+    "transport": { "title": "Ulaşım" },
+    "rules": {
+      "title": "Otel Kuralları", "checkIn": "Giriş saati", "checkOut": "Çıkış saati",
+      "childPolicy": "Çocuk politikası", "childPolicyValue": "Her yaşta çocuk kabul edilir",
+      "pets": "Evcil hayvan", "petsValue": "Kabul edilmiyor", "payment": "Ödeme", "paymentValue": "Kredi kartı ve nakit"
+    },
+    "gallery": { "morePhotos": "+{count} Fotoğraf" },
+    "rooms": {
+      "title": "Odalar", "moreInfo": "Daha fazla bilgi", "boardOptions": "Konaklama Seçenekleri",
+      "freeCancellation": "Ücretsiz iptal", "nonRefundable": "iptal edilemez", "discount": "%{pct} İndirim",
+      "totalForNights": "{nights} gece, 1 oda toplam", "selectCta": "Oda ayır", "installmentOptions": "Taksit seçenekleri",
+      "checkInOutDate": "Giriş ve Çıkış Tarihi", "guestCount": "Konuk Sayısı", "findRoom": "Oda bul"
+    },
+    "map": { "totalForThreeNights": "3 gece toplam tutar", "bookNow": "Rezervasyon Yap" }
+  },
+  "Booking": {
+    "stepper": { "selectRoom": "Oda Seç", "guestInfo": "Konuk Bilgilerini Gir", "payment": "Ödeme Yap" },
+    "summary": {
+      "prev": "Önceki", "next": "Sonraki", "checkIn": "Giriş", "checkOut": "Çıkış",
+      "roomCountWithName": "{count} Oda ({name})", "adults": "{count} Yetişkin", "roomsNights": "{rooms} Oda, {nights} Gece",
+      "freeCancellation": "Ücretsiz iptal", "nonRefundable": "İptal edilemez",
+      "hotelRulesPrefix": "Otel Kuralları için", "hotelRulesLink": "tıklayın"
+    },
+    "price": {
+      "totalAmount": "Toplam Tutar", "accommodation": "Konaklama", "discount": "%{pct} indirim",
+      "payableAmount": "Ödenecek Tutar", "taxesIncluded": "Tüm vergiler ve ücretler dahildir."
+    },
+    "rules": {
+      "title": "Otel Kuralları",
+      "checkInOut": { "title": "Giriş / Çıkış", "body": "Giriş saati 14:00, çıkış saati 12:00'dir. Erken giriş ve geç çıkış talepleri tesisin uygunluğuna bağlıdır." },
+      "childExtraBed": { "title": "Çocuk ve Ek Yatak", "body": "0-6 yaş arası çocuklar ebeveynleriyle aynı odada ücretsiz konaklar. Ek yatak talepleri tesise önceden bildirilmelidir." },
+      "pets": { "title": "Evcil Hayvan", "body": "Tesiste evcil hayvan kabul edilmemektedir (rehber köpekler hariç)." },
+      "payment": { "title": "Ödeme", "body": "Rezervasyonunuz, ödeme adımında belirtilen tutar üzerinden online olarak tahsil edilir. Tüm vergiler ve ücretler fiyata dahildir." },
+      "cancellation": { "title": "İptal Koşulları", "body": "Ücretsiz iptal seçili rezervasyonlar, giriş tarihinden önce belirtilen süreye kadar ücretsiz iptal edilebilir. Detaylar için çağrı merkezimizle iletişime geçebilirsiniz." }
+    },
+    "guest": {
+      "contactTitle": "İletişim Bilgileri", "freeSms": "Ücretsiz SMS", "emailLabel": "E-posta adresiniz",
+      "emailPlaceholder": "E-posta adresiniz", "phoneLabel": "Cep Telefonunuz", "phonePlaceholder": "5",
+      "countryLabel": "Ülke", "countryNote": "Telefon numaranız için ülke kodunuzu seçin.",
+      "contactNote": "Otel ve oda bilgileriniz e-posta ve ücretsiz SMS yoluyla iletilecektir.",
+      "roomLabel": "Oda {n}", "adultN": "{n}. Yetişkin", "firstName": "Ad", "lastName": "Soyad",
+      "notTrCitizen": "T.C. vatandaşı değil", "gender": "Cinsiyet", "male": "Erkek", "female": "Kadın", "optional": "İsteğe Bağlı",
+      "fillGuestInfo": "Konuk bilgilerini doldurmak istiyorum.", "specialRequestQuestion": "Tesisten özel bir talebiniz var mı?",
+      "specialRequestNote": "Tesise iletceğimiz talepleriniz, tesisin uygunluğuna göre işleme alınacaktır.", "notePlaceholder": "Not",
+      "maxChars": "Maksimum {n} karakter", "twinBeds": "İki Ayrı Yataklı Oda", "doubleBed": "Çift Kişilik Yataklı Oda",
+      "honeymoonQuestion": "Balayı çifti misiniz?", "invoiceTitle": "Fatura Bilgileri", "individual": "Bireysel", "corporate": "Kurumsal",
+      "invoiceNote": "T.C. vatandaşları otomatik doldurulan fatura bilgilerini değiştirebilir. Yabancı uyruklu vatandaşların fatura bilgilerini kendilerinin girmesi gerekir.",
+      "enterInvoiceMyself": "Fatura bilgilerini kendim girmek istiyorum", "termsTitle": "Rezervasyon Koşulları",
+      "termsBody": "Seçtiğiniz oda iptal edilemez koşullara sahiptir. Rezervasyon onaylandıktan sonra değişiklik ve iptal yapılamaz. Tüm vergiler ve ücretler fiyata dahildir.",
+      "sendingInfo": "Bilgileriniz gönderiliyor...",
+      "proceedToPayment": "Ödemeye ilerle"
+    },
+    "payment": {
+      "promoInvalid": "Girdiğiniz indirim kodu geçersiz.", "emailPlaceholder": "ornek@eposta.com", "emailError": "Geçerli bir e-posta girin.",
+      "phoneError": "Geçerli bir telefon numarası girin.", "optionsTitle": "Ödeme Seçenekleri", "bankCreditCard": "Banka / Kredi Kartı",
+      "payWithWallet": "Cüzdan ile Öde", "fillContactFirst": "Kart bilgileri için önce iletişim bilgilerini doldur", "cardNumber": "Kart Numarası",
+      "cardError": "Geçerli bir kart numarası girin.", "month": "Ay", "year": "Yıl", "cvv": "CVV",
+      "installmentHint": "Taksit seçeneklerini kartınızın ilk 6 hanesini girdikten sonra görüntüleyebilirsiniz.", "installmentTable": "Taksit tablosu",
+      "usePromoCode": "İndirim kodu kullan", "promoCode": "İndirim kodu", "apply": "Uygula", "promoApplied": "%{pct} indirim uygulandı",
+      "amountToPayNow": "Şu an ödeyeceğiniz tutar", "payNow": "Ödeme yap", "walletLoginPrompt": "Cüzdan ile ödeme için hesabınıza giriş yapın.",
+      "legalNotice": "Kişisel verileriniz <privacy>Aydınlatma Metni</privacy> kapsamında işleniyor. Butona tıkladığında <terms>Bookera Kullanım Koşulları</terms>'nı kabul ettiğini onaylamış olursun.",
+      "digicertNotice": "Tüm ödeme işlemleriniz, dünyanın önde gelen güvenlik sertifikası şirketi DigiCert koruması altındadır.",
+      "installmentTableTitle": "Taksit Tablosu",
+      "installmentTableNote": "Aşağıdaki taksit seçenekleri vade farksızdır. Kesin taksit tutarları, kartınızın ilk 6 hanesi girildikten sonra bankanıza göre güncellenir.",
+      "installment": "Taksit", "monthlyAmount": "Aylık Tutar", "totalAmount": "Toplam Tutar", "singlePayment": "Tek Çekim", "nInstallments": "{n} Taksit"
+    },
+    "otp": {
+      "digitLabel": "Doğrulama kodu hanesi {n}", "expiredError": "Süre doldu. Lütfen kodu tekrar gönderin.",
+      "processing": "Ödeme İşleniyor...", "processingNote": "Lütfen bekleyin, ödemeniz bankanız tarafından işleme alınıyor.",
+      "processingTime": "En fazla 2 dakika sürebilir. Kalan süre: {seconds} sn",
+      "enterCodeError": "Lütfen 6 haneli doğrulama kodunu girin.", "paymentApproved": "Ödeme onaylandı", "redirecting": "Yönlendiriliyorsunuz…",
+      "prompt": "Telefonunuza gönderilen <b>6 haneli doğrulama kodunu</b> girin.", "expired": "Süre doldu", "timeRemaining": "Kalan süre {time}",
+      "resendCode": "Kodu tekrar gönder", "verifying": "Doğrulanıyor…", "confirmPayment": "Ödemeyi Onayla", "cancel": "Vazgeç",
+      "demoNote": "Demo ortamı — doğrulamak için herhangi bir 6 haneli kodu girin.", "securityFooter": "256-bit SSL şifreleme · 3D Secure · DigiCert"
+    },
+    "done": {
+      "carRental": "Araç kiralama", "hotel": "Otel", "title": "Rezervasyonun tamamlandı!",
+      "subtitle": "Ödemen başarıyla alındı. Rezervasyon detayların aşağıda.", "bookingNo": "Rezervasyon No", "transaction": "İşlem",
+      "paidAmount": "Ödenen Tutar", "status": "Durum", "confirmed": "Onaylandı",
+      "emailSent": "Rezervasyon onayı e-posta adresine gönderildi.", "backToHome": "Ana sayfaya dön",
+      "callCenter": "Sorularınız için {phone} numaralı çağrı merkezimizi arayabilirsiniz."
+    }
+  },
+  "Rental": {
+    "car": "Araç",
+    "totalAmount": "Toplam tutar",
+    "landing": { "title": "Araç Kiralama", "subtitle": "Binlerce araç arasından en uygun fiyatı bul, güvenle kirala." },
+    "search": {
+      "daily": "Günlük Kiralama", "monthly": "Aylık Kiralama", "pickupLocation": "Teslim Alış Yeri",
+      "pickupDate": "Teslim Alış Tar...", "dropoffDate": "Teslim Ediş Ta...", "time": "Saat", "findCar": "Araç bul",
+      "differentDropoff": "Araç farklı bir yerde teslim edilecek", "driverAge": "Sürücü yaşı:"
+    },
+    "resultsBar": { "editSearch": "Aramayı Düzenle" },
+    "results": {
+      "found": "{count} araç bulundu", "sort": "Sıralama:", "sortRecommended": "Önerilen", "sortPriceAsc": "Fiyat (artan)",
+      "sortPriceDesc": "Fiyat (azalan)", "empty": "Seçtiğiniz filtrelere uygun araç bulunamadı.",
+      "axessBanner": "Bookera'da Axess'e özel vade farksız 3 taksit fırsatı!", "deliveryPoint": "Teslim Noktası", "close": "Kapat"
+    },
+    "filters": { "title": "Filtrele", "clear": "Filtreleri temizle", "transmission": "Vites", "supplier": "Tedarikçi", "carClass": "Araç Sınıfı" },
+    "card": {
+      "orSimilar": "veya benzeri", "minAge": "{age}+ yaş", "km": "{count} km", "deposit": "Depozito: {amount}",
+      "threeDayPrice": "3 günlük fiyat", "daysPrice": "{days} günlük fiyat", "dailyPrice": "Günlük fiyat: {amount}", "freeCancel": "Ücretsiz İptal",
+      "reviews": "{count} değerlendirme", "detail": "Detay", "bookNow": "Hemen kirala",
+      "kmLimit": "• Kilometre limiti: {count} km", "fuelPolicy": "• Yakıt politikası: Dolu al, dolu teslim et",
+      "minDriverAge": "• Minimum sürücü yaşı: {age}", "cancellation": "• İptal: {value}",
+      "freeCancelValue": "Ücretsiz iptal", "nonRefundable": "İptal edilemez"
+    },
+    "info": { "title": "Araç Bilgileri", "tagCancel": "1 Saate Kadar İptal", "tagHighRated": "Yüksek Puanlı Seçim", "km": "{count} Km" },
+    "delivery": {
+      "deliveryLabel": "Teslimat: {value}", "deliveryNote": "Araç teslimi, havalimanı bölgesindeki firma ofisi veya teslim noktasında gerçekleşir.",
+      "workingHours": "Çalışma Saati: 00:00 - 23:59", "firmTitle": "Firma ve Teslim Bilgileri", "pickup": "Teslim Alış",
+      "dropoff": "Teslim Ediş", "terms": "Teslim Şartları", "rentalConditions": "Kiralama Koşulları"
+    },
+    "summary": {
+      "depositNoteStart": "Araç teslimi sırasında tahsil edilecek depozito ücreti için",
+      "depositNoteBold": "kendi adınıza ait kredi kartınız, kimliğinizi ve ehliyetinizi", "depositNoteEnd": "yanınızda bulundurmalısınız.",
+      "totalAmount": "Toplam Tutar", "chargedAmount": "Kartınızdan Çekilecek Tutar", "reservationAmount": "Rezervasyon Tutarı",
+      "daysTotal": "{days} günlük toplam tutar", "dailyRentalAmount": "Günlük kiralama tutarı: {amount}",
+      "rentalConditionsLine": "<link>Kiralama Koşulları</link>’nı görmek için tıklayın", "priceDetails": "Fiyat Detayları",
+      "dailyFee": "Günlük Ücret: {amount}", "carAndDelivery": "Araç ve Teslim Bilgisi", "details": "Detaylar",
+      "viewConditionsPrefix": "Kiralama koşullarını görmek için", "click": "tıklayınız"
+    },
+    "extras": {
+      "title": "Ek Hizmetler ve Güvenceler", "upgradeTitle": "Seçimini üst segmente yükselt",
+      "upgradeSubtitle": "Araç seçimini üst segmente yükselterek yolculuğun keyfini artır.", "upgradePricePrefix": "Günlük sadece",
+      "upgradePriceSuffix": "fark ile.", "upgradeNow": "Şimdi yükselt", "previous": "Önceki", "next": "Sonraki", "continue": "Devam et"
+    },
+    "stepper": { "carSelection": "Araç Seçimi", "extras": "Ek Hizmet ve Güvence", "driver": "Sürücü Bilgileri", "payment": "Ödeme" },
+    "driver": {
+      "extraInfo": "Ek Bilgiler", "extraInfoNote": "Seçtiğiniz ek hizmetler ve güvenceler bir sonraki adımda özetlenecektir.",
+      "title": "Sürücü Bilgileri", "email": "E-posta adresi", "emailNote": "Kiralama bilgileriniz e-posta ve ücretsiz SMS yoluyla iletilecek.",
+      "phone": "Cep Telefonu", "firstName": "Ad", "firstNamePlaceholder": "Adınız", "lastName": "Soyad", "lastNamePlaceholder": "Soyadınız",
+      "day": "Gün", "month": "Ay", "year": "Yıl", "tc": "T.C. Kimlik No", "notCitizen": "T.C. vatandaşı değil",
+      "flightNumber": "Uçuş Numarası (İsteğe bağlı)", "flightNote": "Uçuşunuzun gecikme ihtimaline karşı.",
+      "validationError": "Lütfen zorunlu alanları eksiksiz ve doğru doldurun.", "invoiceTitle": "Fatura Bilgileri", "optional": "(İsteğe bağlı)",
+      "individual": "Bireysel", "corporate": "Kurumsal", "invoiceName": "Ad Soyad / Ünvan", "invoiceTax": "TCKN / VKN",
+      "invoiceAddress": "Adres", "proceedToPayment": "Ödemeye ilerle"
+    },
+    "months": {
+      "january": "Ocak", "february": "Şubat", "march": "Mart", "april": "Nisan", "may": "Mayıs", "june": "Haziran",
+      "july": "Temmuz", "august": "Ağustos", "september": "Eylül", "october": "Ekim", "november": "Kasım", "december": "Aralık"
+    },
+    "payment": {
+      "contactInfo": "İletişim Bilgileri", "email": "E-posta", "phone": "Telefon", "firstAdult": "1. Yetişkin",
+      "firstName": "Ad", "lastName": "Soyad", "birthDate": "Doğum Tarihi", "tc": "TC Kimlik No", "paymentOptions": "Ödeme Seçenekleri",
+      "bankCard": "Banka / Kredi Kartı", "payWithWallet": "{wallet} ile öde", "contactMissing": "Kart bilgileri için iletişim bilgileri eksik",
+      "cardNumber": "Kart Numarası", "cardError": "Geçerli bir kart numarası girin.", "expiry": "Son Kullanma Tarihi", "month": "Ay", "year": "Yıl", "cvv": "CVV",
+      "installmentNote": "Taksit seçeneklerini kartınızın ilk 6 hanesini girdikten sonra görüntüleyebilirsiniz.", "installmentTable": "Taksit Tablosu",
+      "usePromoCode": "İndirim Kodu Kullan", "promoCode": "İndirim kodu", "apply": "Uygula", "amount": "Tutar", "pay": "Ödeme Yap",
+      "walletRedirect": "{wallet} ile ödemek için yönlendirileceksiniz.", "privacyPrefix": "Kişisel verileriniz",
+      "privacyPolicy": "Aydınlatma Metni", "privacySuffix": "kapsamında işleniyor. Butona tıkladığında Bookera Kullanım Koşulları’nı kabul etmiş olursun.",
+      "digicert": "Tüm ödeme işlemleriniz, önde gelen küresel güvenlik sertifikasyon şirketi DigiCert tarafından korunmaktadır."
+    },
+    "campaigns": { "apply": "Kampanyayı uygula", "more": "Daha fazla kampanya" }
+  }
+}

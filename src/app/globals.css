@@ -1,0 +1,213 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Inter is the entire type system for Bookera */
+  --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-sans);
+  --font-mono: ui-monospace, monospace;
+
+  /* shadcn slots */
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Brand tokens (Bookera) */
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-ink-dark: var(--brand-ink-dark);
+  --color-surface: var(--surface);
+  --color-tab-inactive: var(--tab-inactive);
+  --color-rating: var(--rating);
+  --color-star: var(--star);
+  --color-accent-gold: var(--accent-gold);
+
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: calc(var(--radius) * 0.75);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.5);
+  --radius-2xl: calc(var(--radius) * 2);
+  --radius-3xl: calc(var(--radius) * 2.5);
+  --radius-pill: 9999px;
+}
+
+:root {
+  /* Surface */
+  --background: #ffffff;
+  --foreground: #0f172a; /* slate-900 */
+
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+
+  /* Primary CTA: Bookera royal blue */
+  --primary: #012b9a;
+  --primary-foreground: #ffffff;
+
+  /* Secondary: deep ink navy */
+  --secondary: #0a1633;
+  --secondary-foreground: #ffffff;
+
+  /* Muted text — cool slate */
+  --muted: #f1f5f9; /* slate-100 */
+  --muted-foreground: #64748b; /* slate-500 */
+
+  --accent: #f1f5f9;
+  --accent-foreground: #0f172a;
+
+  --destructive: #dc2626;
+
+  --border: #e2e8f0; /* slate-200 */
+  --input: #cbd5e1; /* slate-300 */
+  --ring: #012b9a;
+
+  /* Brand — Bookera */
+  --brand: #012b9a; /* royal blue — primary CTA, links, active */
+  --brand-hover: #001f73; /* darker hover */
+  --brand-ink: #0a1633; /* dark surfaces: header, footer, app promo, ratings */
+  --brand-ink-dark: #060e2b; /* top utility bar — deepest navy */
+  --surface: #f6f8fb; /* cool off-white */
+  --tab-inactive: #94a3b8; /* slate-400 */
+  --accent-gold: #c8941e; /* warm premium accent */
+  --rating: #012b9a; /* rating badge bg — brand blue, white text */
+  --star: #e8a317; /* star icons — refined gold */
+
+  --radius: 0.375rem; /* 6px — tighter, corporate */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+  }
+  /* Tighter tracking on display headings for a sharper, corporate hierarchy */
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.02em;
+  }
+
+  /* Click + hover feel across all buttons and link-buttons */
+  button,
+  a {
+    transition-property: color, background-color, border-color, box-shadow,
+      transform, opacity, filter;
+    transition-duration: 150ms;
+    transition-timing-function: ease;
+  }
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+  button:not(:disabled):active {
+    transform: scale(0.97);
+  }
+}
+
+/* Tactile press for primary call-to-action links (rendered as <a>) */
+a.cta-press:active {
+  transform: scale(0.97);
+}
+
+/* Chrome paints autofilled fields pale blue, which clashes with the white
+   forms — repaint them white and keep the normal text color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+select:-webkit-autofill,
+textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset;
+  box-shadow: 0 0 0 1000px #ffffff inset;
+  -webkit-text-fill-color: var(--foreground);
+  caret-color: var(--foreground);
+}
+
+/* Offer banner attention loop — a periodic light sweep across the card, a
+   soft gold glow pulse, and a per-second tick pop on the countdown digits.
+   All applied behind `motion-safe:` so reduced-motion users see a calm card. */
+@keyframes offer-sheen {
+  0% {
+    transform: translateX(-160%) skewX(-18deg);
+  }
+  45%,
+  100% {
+    transform: translateX(460%) skewX(-18deg);
+  }
+}
+@keyframes offer-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(200, 148, 30, 0);
+  }
+  50% {
+    box-shadow: 0 0 26px 3px rgba(200, 148, 30, 0.32);
+  }
+}
+@keyframes offer-tick {
+  0% {
+    transform: scale(1.3);
+    color: #ffffff;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  button:not(:disabled):active,
+  a.cta-press:active {
+    transform: none;
+  }
+}
+
+@utility container-page {
+  /* Site container: 1120px content rail */
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 768px) {
+  .container-page {
+    padding-inline: 1.5rem;
+  }
+}

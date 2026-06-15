@@ -1,0 +1,431 @@
+{
+  "DatePicker": {
+    "checkIn": "Check-in",
+    "checkOut": "Check-out",
+    "nights": "{count, plural, one {# night} other {# nights}}",
+    "apply": "Apply",
+    "clear": "Clear",
+    "selectDates": "Select dates",
+    "selectCheckout": "Select check-out date"
+  },
+  "Common": {
+    "selectCta": "Select",
+    "seeAll": "See all",
+    "prev": "Previous",
+    "next": "Next",
+    "hotelCard": {
+      "priceNote": "2-night price for 2 guests",
+      "fromPrice": "from <price>{value}</price>",
+      "discountBadge": "{pct}% Off"
+    }
+  },
+  "Offer": {
+    "eyebrow": "Exclusive Deal",
+    "title": "<strong>{pct}%</strong> off all hotels",
+    "subtitle": "Valid for {hours} hours only — these prices won't come back.",
+    "endsIn": "Ends in",
+    "hoursShort": "Hours",
+    "minutesShort": "Minutes",
+    "secondsShort": "Seconds"
+  },
+  "Header": {
+    "homeAria": "Bookera home page",
+    "currencyAria": "Select currency",
+    "languageAria": "Select language",
+    "nav": {
+      "hotels": "Hotels",
+      "cars": "Car Rental"
+    }
+  },
+  "Currency": {
+    "TRY": "Turkish Lira",
+    "USD": "US Dollar",
+    "EUR": "Euro",
+    "GBP": "British Pound"
+  },
+  "Language": {
+    "tr": "Türkçe",
+    "en": "English"
+  },
+  "Home": {
+    "cyprusRailTitle": "Discover Cyprus Hotels",
+    "recommendedRailTitle": "Recommended Hotels",
+    "seeAll": "See all",
+    "hero": {
+      "title": "Search for Affordable Hotels",
+      "popularSearches": "Popular searches",
+      "done": "Done",
+      "tabs": { "hotel": "Hotel", "car": "Car", "reservation": "Find Reservation" },
+      "tagline": {
+        "reservation": "Easily look up your reservation!",
+        "car": "The best car rental deals are on Bookera!",
+        "hotel": "The best holiday and city hotels are on Bookera!"
+      },
+      "hotel": {
+        "destLabel": "City, District, Theme, Hotel Name",
+        "destPlaceholder": "City, district, theme or hotel name",
+        "hotelCount": "{count} hotels",
+        "datesLabel": "Check-in and Check-out Dates",
+        "checkIn": "Check-in Date",
+        "checkOut": "Check-out Date",
+        "guestsLabel": "Number of Guests",
+        "search": "Find hotel"
+      },
+      "car": {
+        "pickupLabel": "Pick-up Location",
+        "pickupPlaceholder": "City, airport or office",
+        "carCount": "{count} cars",
+        "pickupDateLabel": "Pick-up Date",
+        "dropoffDateLabel": "Drop-off Date",
+        "time": "Time",
+        "search": "Find car"
+      },
+      "guests": {
+        "summary": "{adults} {adults, plural, one {Adult} other {Adults}}{children, plural, =0 {} other {, # {children, plural, one {Child} other {Children}}}}, {rooms} {rooms, plural, one {Room} other {Rooms}}",
+        "adults": "Adults",
+        "children": "Children",
+        "rooms": "Rooms",
+        "decrease": "Decrease {label}",
+        "increase": "Increase {label}"
+      },
+      "reservation": {
+        "pnrLabel": "Reservation Number",
+        "pnrPlaceholder": "Enter your reservation number",
+        "surnameLabel": "Surname",
+        "surnamePlaceholder": "Enter your surname",
+        "submit": "Look up",
+        "errorEmpty": "Please enter your reservation number and surname.",
+        "notFound": "No reservation was found matching the details you entered. Please check your information and try again, or call our call center at <phone>0850 811 90 90</phone>."
+      },
+      "searchChips": {
+        "0": "Early Booking Hotels",
+        "1": "Cyprus Hotels",
+        "2": "Honeymoon Hotels",
+        "3": "All-Inclusive Antalya Hotels"
+      }
+    },
+    "popularRegions": {
+      "title": "Popular Regions",
+      "domestic": "Domestic",
+      "international": "International",
+      "hotelChip": "{count} Hotels",
+      "regions": {
+        "turkiye": "Turkey",
+        "antalya": "Antalya",
+        "mugla": "Mugla",
+        "izmir": "Izmir",
+        "kibris": "Cyprus"
+      }
+    },
+    "themedRails": {
+      "spa": "The best spa hotels are on BOOKERA",
+      "erken-rezervasyon": "The best early booking hotels are on BOOKERA",
+      "cocuk-dostu": "The best child-friendly hotels are on BOOKERA",
+      "muhafazakar": "The best conservative hotels are on BOOKERA",
+      "balayi": "The best honeymoon hotels are on BOOKERA",
+      "bungalov": "The best bungalow hotels are on BOOKERA"
+    },
+    "holidayThemes": {
+      "title": "Holiday Themes",
+      "items": {
+        "bungalov": "Bungalow hotels",
+        "termal": "Thermal hotels",
+        "tatil-koyu": "Holiday villages",
+        "pansiyon": "Guesthouses",
+        "butik": "Boutique hotels",
+        "5-yildiz": "5-star hotels",
+        "hersey-dahil": "All-inclusive hotels",
+        "islami": "Conservative hotels",
+        "balayi": "Honeymoon hotels",
+        "cocuk-dostu": "Child-friendly hotels",
+        "denize-sifir": "Beachfront hotels",
+        "aquapark": "Hotels with aquaparks"
+      }
+    },
+    "whyUs": {
+      "title": "Why Should I Use Bookera.com to Find a Cheap Hotel?",
+      "items": {
+        "0": { "title": "Countless options", "desc": "With Bookera, you can filter thousands of hotels by your preferences and find the most suitable hotel for you within seconds." },
+        "1": { "title": "The best-value hotel", "desc": "Don't get lost among confusing price and service options; set your preferences and instantly reserve your room at the hotel that suits you best." },
+        "2": { "title": "Fast and easy", "desc": "With Bookera, you only need a few seconds to find the hotel you're looking for." },
+        "3": { "title": "Buy with confidence", "desc": "All your payment transactions are protected by GlobalSign, one of the world's leading security certificate companies." }
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": {
+        "0": { "q": "How does BOOKERA offer the best hotel prices?", "a": "BOOKERA, Turkey's travel site, compares and lists thousands of hotel options based on the destination and dates where you want to stay, with hotel prices to suit every budget. You can sort the listed hotels by price ascending or descending, by rating, by proximity to the center, and by relevance. You can choose the hotel that best suits you by using many filters such as guest reviews, board type, reservation cancellation, and theme." },
+        "1": { "q": "How can I make my hotel reservation on BOOKERA?", "a": "To make a hotel reservation on BOOKERA, you can use our website or mobile app. By selecting the place and dates where you want to stay, you can compare thousands of properties and safely book by choosing the hotel and room that best suits you. By becoming an BOOKERA member, you can complete your transaction within seconds." },
+        "2": { "q": "Can I make an international hotel reservation on BOOKERA?", "a": "On BOOKERA, you can list thousands of international hotels serving all around the world based on the place and dates of your stay. By choosing the hotel that suits you from among the many theme options, you can make a reservation easily and reliably." },
+        "3": { "q": "Can I get more information about the property and room details?", "a": "If you would like more information about the property and room you have selected, you can contact our travel advisors via our call center at 0850 811 90 90." },
+        "4": { "q": "What should I pay attention to when making a hotel reservation?", "a": "There are some points to consider when making a hotel reservation so that you don't experience any problems during your stay. The hotel's location and star rating are among the leading criteria that influence your choice. In addition, extra fees, pet policy, and services such as transfers and restaurants are among the things you should keep in mind when booking." },
+        "5": { "q": "Can I cancel my hotel reservation on BOOKERA?", "a": "When making a hotel reservation on BOOKERA, there is a free cancellation option in the reservation conditions section under filters. By selecting this filter, you can cancel your hotel reservations that fall within the scope of free cancellation. For all other cancellation and change transactions, you can call our free call center at 0850 811 90 90." },
+        "6": { "q": "How does BOOKERA ensure the security of my transactions?", "a": "All transactions you make through BOOKERA are secured with an SSL certificate. In addition, 3D Security assurance is provided at the payment step when making a hotel reservation. All your payment transactions are protected by DigiCert, one of the world's leading security certificate companies." }
+      }
+    },
+    "footer": {
+      "popularRegions": "Popular Regions",
+      "popularThemes": "Popular Themes",
+      "tagline": "The best prices on hotels and car rentals.",
+      "copyright": "© 2026 BOOKERA — All rights reserved.",
+      "ssl": "Protected by DigiCert SSL.",
+      "regions": { "0": "Alanya Hotels", "1": "Çeşme Hotels", "2": "Kemer Hotels", "3": "Side Hotels", "4": "Didim Hotels", "5": "Cyprus Hotels", "6": "Uludağ Hotels", "7": "Ağva Hotels" },
+      "themes": { "0": "Honeymoon Hotels", "1": "Thermal Hotels", "2": "Early Booking Hotels", "3": "Conservative Hotels", "4": "Spa Hotels", "5": "Child-Friendly Hotels", "6": "Bungalow Houses", "7": "Ski Hotels" },
+      "columns": {
+        "hotel": { "title": "Hotel", "links": { "0": "Hotel", "1": "İstanbul Hotels", "2": "Antalya Hotels", "3": "Bodrum Hotels", "4": "İzmir Hotels", "5": "Marmaris Hotels", "6": "Fethiye Hotels" } },
+        "car": { "title": "Car Rental", "links": { "0": "Car Rental" } }
+      },
+      "legal": { "title": "Legal", "privacy": "Privacy Policy", "cookies": "Cookie Policy", "terms": "Terms of Use", "security": "Security" }
+    }
+  },
+  "Search": {
+    "pageTitle": "{place} Hotels",
+    "saveSearch": "Save search to favorites",
+    "share": "Share",
+    "sortCriteria": "Sorting Criteria",
+    "noResults": "No hotels match your selected filters.",
+    "card": {
+      "addFavorite": "Add to favorites",
+      "prevPhoto": "Previous photo",
+      "nextPhoto": "Next photo",
+      "reviews": "{n} reviews",
+      "discount": "{pct}% Off",
+      "totalForNights": "total for {n} nights",
+      "select": "Select",
+      "roomsLeft": "Only {n} rooms left",
+      "bestOption": "Best Choice"
+    },
+    "map": {
+      "show": "Show on map",
+      "hide": "Hide map",
+      "close": "Close",
+      "hotelCount": "{n} hotels",
+      "totalForNights": "total for {n} nights"
+    },
+    "filters": {
+      "title": "Filter",
+      "totalRoomPrice": "Total Room Price",
+      "minPrice": "Min TL",
+      "maxPrice": "Max TL",
+      "applyPrice": "Apply price",
+      "region": "Region",
+      "boardType": "Board Type",
+      "showLess": "Show less",
+      "showMore": "Show more ({n})"
+    },
+    "sort": {
+      "priceAsc": "Price Low to High",
+      "priceDesc": "Price High to Low",
+      "recommended": "Recommended",
+      "ratingDesc": "Highest Rated",
+      "ratingPrice": "High Rating - Low Price"
+    },
+    "searchBar": {
+      "destinationLabel": "City, District, Theme, Hotel Name",
+      "destinationPlaceholder": "City, district, theme or hotel name",
+      "hotelCount": "{n} hotels",
+      "datesLabel": "Check-in and Check-out Dates",
+      "checkIn": "Check-in Date",
+      "checkOut": "Check-out Date",
+      "guestsLabel": "Number of Guests",
+      "done": "Done",
+      "searchAgain": "Search again"
+    },
+    "guests": {
+      "adults": "Adults",
+      "children": "Children",
+      "rooms": "Rooms",
+      "decrease": "Decrease {label}",
+      "increase": "Increase {label}"
+    }
+  },
+  "Detail": {
+    "nav": { "hotel": "Hotel", "rooms": "Rooms", "reviews": "Reviews", "features": "Hotel Features", "transport": "Transport", "rules": "Hotel Rules" },
+    "breadcrumb": { "hotel": "Hotel" },
+    "allCityHotels": "All {city} Hotels",
+    "reviewCountInline": "{count} reviews",
+    "showOnMap": "Show on map",
+    "share": "Share",
+    "addToFavorites": "Add to favorites",
+    "makeReservation": "Book now",
+    "close": "Close",
+    "previous": "Previous",
+    "next": "Next",
+    "overview": { "showLess": "Show less", "readMore": "Read more" },
+    "reviews": {
+      "title": "Reviews and Ratings",
+      "verifiedNote": "Reviews are written by 100% verified customers",
+      "evaluationCount": "{count} ratings",
+      "sortBy": "Sort by:",
+      "mostRelevant": "Most relevant",
+      "guestType": "Guest Type",
+      "all": "All",
+      "searchPlaceholder": "Search in reviews",
+      "aiTitle": "What Did Users Like Most?",
+      "aiSubtitle": "We've listed the topics guests mentioned most below.",
+      "aiDisclaimer": "We summarized the reviews for you using AI.",
+      "reviewDate": "Review date:"
+    },
+    "features": { "title": "Hotel Features" },
+    "amenities": {
+      "outdoorPool": "Outdoor pool", "indoorPool": "Indoor pool", "aquapark": "Aquapark", "spaWellness": "SPA & Wellness",
+      "freeWifi": "Free Wi-Fi", "privateBeach": "Private beach", "fitnessCenter": "Fitness center", "restaurant": "Restaurant",
+      "bar": "Bar", "kidsClub": "Kids club", "roomService": "Room service", "parking": "Parking",
+      "reception24h": "24-hour reception", "airConditioning": "Air conditioning", "meetingRoom": "Meeting room", "accessible": "Accessible"
+    },
+    "transport": { "title": "Transport" },
+    "rules": {
+      "title": "Hotel Rules", "checkIn": "Check-in time", "checkOut": "Check-out time",
+      "childPolicy": "Child policy", "childPolicyValue": "Children of all ages welcome",
+      "pets": "Pets", "petsValue": "Not allowed", "payment": "Payment", "paymentValue": "Credit card and cash"
+    },
+    "gallery": { "morePhotos": "+{count} Photos" },
+    "rooms": {
+      "title": "Rooms", "moreInfo": "More info", "boardOptions": "Board Options",
+      "freeCancellation": "Free cancellation", "nonRefundable": "non-refundable", "discount": "{pct}% Discount",
+      "totalForNights": "{nights} nights, 1 room total", "selectCta": "Reserve room", "installmentOptions": "Installment options",
+      "checkInOutDate": "Check-in and Check-out Date", "guestCount": "Guest Count", "findRoom": "Find room"
+    },
+    "map": { "totalForThreeNights": "Total for 3 nights", "bookNow": "Book Now" }
+  },
+  "Booking": {
+    "stepper": { "selectRoom": "Select Room", "guestInfo": "Enter Guest Details", "payment": "Make Payment" },
+    "summary": {
+      "prev": "Previous", "next": "Next", "checkIn": "Check-in", "checkOut": "Check-out",
+      "roomCountWithName": "{count} Room ({name})", "adults": "{count} Adults", "roomsNights": "{rooms} Room, {nights} Nights",
+      "freeCancellation": "Free cancellation", "nonRefundable": "Non-refundable",
+      "hotelRulesPrefix": "For the Hotel Rules,", "hotelRulesLink": "click here"
+    },
+    "price": {
+      "totalAmount": "Total Amount", "accommodation": "Accommodation", "discount": "{pct}% discount",
+      "payableAmount": "Amount Due", "taxesIncluded": "All taxes and fees are included."
+    },
+    "rules": {
+      "title": "Hotel Rules",
+      "checkInOut": { "title": "Check-in / Check-out", "body": "Check-in is at 14:00 and check-out is at 12:00. Early check-in and late check-out requests are subject to the property's availability." },
+      "childExtraBed": { "title": "Children and Extra Beds", "body": "Children aged 0-6 stay free of charge in the same room as their parents. Extra bed requests must be communicated to the property in advance." },
+      "pets": { "title": "Pets", "body": "Pets are not allowed at the property (except guide dogs)." },
+      "payment": { "title": "Payment", "body": "Your reservation is charged online based on the amount stated at the payment step. All taxes and fees are included in the price." },
+      "cancellation": { "title": "Cancellation Terms", "body": "Reservations with free cancellation selected can be cancelled free of charge up to the stated period before the check-in date. For details, you can contact our call center." }
+    },
+    "guest": {
+      "contactTitle": "Contact Details", "freeSms": "Free SMS", "emailLabel": "Your email address",
+      "emailPlaceholder": "Your email address", "phoneLabel": "Your mobile number", "phonePlaceholder": "5",
+      "countryLabel": "Country", "countryNote": "Select your country code for phone number.",
+      "contactNote": "Your hotel and room details will be sent via email and free SMS.",
+      "roomLabel": "Room {n}", "adultN": "Adult {n}", "firstName": "First name", "lastName": "Last name",
+      "notTrCitizen": "Not a Turkish citizen", "gender": "Gender", "male": "Male", "female": "Female", "optional": "Optional",
+      "fillGuestInfo": "I want to fill in guest details.", "specialRequestQuestion": "Do you have a special request for the property?",
+      "specialRequestNote": "The requests we forward to the property will be processed depending on the property's availability.", "notePlaceholder": "Note",
+      "maxChars": "Maximum {n} characters", "twinBeds": "Room with Two Separate Beds", "doubleBed": "Room with a Double Bed",
+      "honeymoonQuestion": "Are you a honeymoon couple?", "invoiceTitle": "Invoice Details", "individual": "Individual", "corporate": "Corporate",
+      "invoiceNote": "Turkish citizens can edit the auto-filled invoice details. Foreign nationals must enter their invoice details themselves.",
+      "enterInvoiceMyself": "I want to enter the invoice details myself", "termsTitle": "Reservation Terms",
+      "termsBody": "The room you selected has non-refundable terms. No changes or cancellations can be made after the reservation is confirmed. All taxes and fees are included in the price.",
+      "sendingInfo": "Sending your information...",
+      "proceedToPayment": "Proceed to payment"
+    },
+    "payment": {
+      "promoInvalid": "The discount code you entered is invalid.", "emailPlaceholder": "example@email.com", "emailError": "Enter a valid email address.",
+      "phoneError": "Enter a valid phone number.", "optionsTitle": "Payment Options", "bankCreditCard": "Debit / Credit Card",
+      "payWithWallet": "Pay with Wallet", "fillContactFirst": "Fill in your contact details first to enter card information", "cardNumber": "Card Number",
+      "cardError": "Enter a valid card number.", "month": "Month", "year": "Year", "cvv": "CVV",
+      "installmentHint": "You can view the installment options after entering the first 6 digits of your card.", "installmentTable": "Installment table",
+      "usePromoCode": "Use a discount code", "promoCode": "Discount code", "apply": "Apply", "promoApplied": "{pct}% discount applied",
+      "amountToPayNow": "Amount you will pay now", "payNow": "Make payment", "walletLoginPrompt": "Sign in to your account to pay with your wallet.",
+      "legalNotice": "Your personal data is processed under the <privacy>Privacy Notice</privacy>. By clicking the button, you confirm that you accept the <terms>Bookera Terms of Use</terms>.",
+      "digicertNotice": "All your payment transactions are protected by DigiCert, the world's leading security certificate company.",
+      "installmentTableTitle": "Installment Table",
+      "installmentTableNote": "The installment options below are interest-free. The exact installment amounts are updated according to your bank after the first 6 digits of your card are entered.",
+      "installment": "Installment", "monthlyAmount": "Monthly Amount", "totalAmount": "Total Amount", "singlePayment": "Single Payment", "nInstallments": "{n} Installments"
+    },
+    "otp": {
+      "digitLabel": "Verification code digit {n}", "expiredError": "Time has expired. Please resend the code.",
+      "processing": "Processing Payment...", "processingNote": "Please wait while your bank processes the payment.",
+      "processingTime": "This can take up to 2 minutes. Time remaining: {seconds}s",
+      "enterCodeError": "Please enter the 6-digit verification code.", "paymentApproved": "Payment approved", "redirecting": "Redirecting you…",
+      "prompt": "Enter the <b>6-digit verification code</b> sent to your phone.", "expired": "Time expired", "timeRemaining": "Time remaining {time}",
+      "resendCode": "Resend code", "verifying": "Verifying…", "confirmPayment": "Confirm Payment", "cancel": "Cancel",
+      "demoNote": "Demo environment — enter any 6-digit code to verify.", "securityFooter": "256-bit SSL encryption · 3D Secure · DigiCert"
+    },
+    "done": {
+      "carRental": "Car rental", "hotel": "Hotel", "title": "Your reservation is complete!",
+      "subtitle": "Your payment was received successfully. Your reservation details are below.", "bookingNo": "Reservation No", "transaction": "Transaction",
+      "paidAmount": "Amount Paid", "status": "Status", "confirmed": "Confirmed",
+      "emailSent": "The reservation confirmation has been sent to your email address.", "backToHome": "Return to home page",
+      "callCenter": "For your questions, you can call our call center at {phone}."
+    }
+  },
+  "Rental": {
+    "car": "Car",
+    "totalAmount": "Total amount",
+    "landing": { "title": "Car Rental", "subtitle": "Find the best price among thousands of cars and rent with confidence." },
+    "search": {
+      "daily": "Daily Rental", "monthly": "Monthly Rental", "pickupLocation": "Pickup Location",
+      "pickupDate": "Pickup Dat...", "dropoffDate": "Drop-off Da...", "time": "Time", "findCar": "Find a car",
+      "differentDropoff": "The car will be returned at a different location", "driverAge": "Driver age:"
+    },
+    "resultsBar": { "editSearch": "Edit Search" },
+    "results": {
+      "found": "{count} cars found", "sort": "Sort by:", "sortRecommended": "Recommended", "sortPriceAsc": "Price (low to high)",
+      "sortPriceDesc": "Price (high to low)", "empty": "No cars match your selected filters.",
+      "axessBanner": "Special interest-free 3-installment offer with Axess on Bookera!", "deliveryPoint": "Pickup Point", "close": "Close"
+    },
+    "filters": { "title": "Filter", "clear": "Clear filters", "transmission": "Transmission", "supplier": "Supplier", "carClass": "Car Class" },
+    "card": {
+      "orSimilar": "or similar", "minAge": "{age}+ years", "km": "{count} km", "deposit": "Deposit: {amount}",
+      "threeDayPrice": "3-day price", "daysPrice": "{days}-day price", "dailyPrice": "Daily price: {amount}", "freeCancel": "Free Cancellation",
+      "reviews": "{count} reviews", "detail": "Details", "bookNow": "Rent now",
+      "kmLimit": "• Mileage limit: {count} km", "fuelPolicy": "• Fuel policy: Pick up full, return full",
+      "minDriverAge": "• Minimum driver age: {age}", "cancellation": "• Cancellation: {value}",
+      "freeCancelValue": "Free cancellation", "nonRefundable": "Non-refundable"
+    },
+    "info": { "title": "Car Information", "tagCancel": "Cancel Within 1 Hour", "tagHighRated": "Highly Rated Choice", "km": "{count} Km" },
+    "delivery": {
+      "deliveryLabel": "Delivery: {value}", "deliveryNote": "The car is delivered at the company office or pickup point in the airport area.",
+      "workingHours": "Working Hours: 00:00 - 23:59", "firmTitle": "Company and Delivery Information", "pickup": "Pickup",
+      "dropoff": "Drop-off", "terms": "Delivery Terms", "rentalConditions": "Rental Conditions"
+    },
+    "summary": {
+      "depositNoteStart": "For the deposit fee to be collected when the car is delivered, you must have",
+      "depositNoteBold": "your own credit card, your ID and your driver's license", "depositNoteEnd": "with you.",
+      "totalAmount": "Total Amount", "chargedAmount": "Amount to Be Charged to Your Card", "reservationAmount": "Reservation Amount",
+      "daysTotal": "{days}-day total amount", "dailyRentalAmount": "Daily rental amount: {amount}",
+      "rentalConditionsLine": "Click here to view the <link>Rental Conditions</link>", "priceDetails": "Price Details",
+      "dailyFee": "Daily Fee: {amount}", "carAndDelivery": "Car and Delivery Information", "details": "Details",
+      "viewConditionsPrefix": "To view the rental conditions", "click": "click here"
+    },
+    "extras": {
+      "title": "Extra Services and Coverages", "upgradeTitle": "Upgrade your choice to a higher segment",
+      "upgradeSubtitle": "Upgrade your car choice to a higher segment to enjoy your trip more.", "upgradePricePrefix": "Only daily",
+      "upgradePriceSuffix": "extra.", "upgradeNow": "Upgrade now", "previous": "Previous", "next": "Next", "continue": "Continue"
+    },
+    "stepper": { "carSelection": "Car Selection", "extras": "Extras and Coverage", "driver": "Driver Information", "payment": "Payment" },
+    "driver": {
+      "extraInfo": "Additional Information", "extraInfoNote": "The extra services and coverages you selected will be summarized in the next step.",
+      "title": "Driver Information", "email": "Email address", "emailNote": "Your rental information will be sent via email and free SMS.",
+      "phone": "Mobile Phone", "firstName": "First Name", "firstNamePlaceholder": "Your first name", "lastName": "Last Name", "lastNamePlaceholder": "Your last name",
+      "day": "Day", "month": "Month", "year": "Year", "tc": "National ID No.", "notCitizen": "Not a Turkish citizen",
+      "flightNumber": "Flight Number (Optional)", "flightNote": "In case your flight is delayed.",
+      "validationError": "Please fill in all required fields completely and correctly.", "invoiceTitle": "Invoice Information", "optional": "(Optional)",
+      "individual": "Individual", "corporate": "Corporate", "invoiceName": "Full Name / Title", "invoiceTax": "National ID / Tax No.",
+      "invoiceAddress": "Address", "proceedToPayment": "Proceed to payment"
+    },
+    "months": {
+      "january": "January", "february": "February", "march": "March", "april": "April", "may": "May", "june": "June",
+      "july": "July", "august": "August", "september": "September", "october": "October", "november": "November", "december": "December"
+    },
+    "payment": {
+      "contactInfo": "Contact Information", "email": "Email", "phone": "Phone", "firstAdult": "1st Adult",
+      "firstName": "First Name", "lastName": "Last Name", "birthDate": "Date of Birth", "tc": "National ID No.", "paymentOptions": "Payment Options",
+      "bankCard": "Debit / Credit Card", "payWithWallet": "Pay with {wallet}", "contactMissing": "Contact information is missing for card details",
+      "cardNumber": "Card Number", "cardError": "Enter a valid card number.", "expiry": "Expiry Date", "month": "Month", "year": "Year", "cvv": "CVV",
+      "installmentNote": "You can view installment options after entering the first 6 digits of your card.", "installmentTable": "Installment Table",
+      "usePromoCode": "Use Discount Code", "promoCode": "Discount code", "apply": "Apply", "amount": "Amount", "pay": "Make Payment",
+      "walletRedirect": "You will be redirected to pay with {wallet}.", "privacyPrefix": "Your personal data is processed within the scope of the",
+      "privacyPolicy": "Privacy Notice", "privacySuffix": ". By clicking the button, you accept the Bookera Terms of Use.",
+      "digicert": "All your payment transactions are protected by DigiCert, a leading global security certification company."
+    },
+    "campaigns": { "apply": "Apply campaign", "more": "More campaigns" }
+  }
+}

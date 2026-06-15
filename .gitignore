@@ -1,0 +1,63 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build
+.next/
+out/
+build/
+dist/
+
+# Environment
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Vercel
+.vercel
+
+# Local HTTPS certs (next dev --experimental-https)
+certificates/
+
+# Local settings (not project config)
+.claude/settings.local.json
+
+# User-specific skills (not part of the template)
+.claude/skills/customize/
+.claude/skills/release/
+
+# Local temp files
+temp/
+.playwright-mcp/
+.claude/worktrees/
+
+# Scraper output (raw JSON, checkpoints, cookies)
+scripts/scraper/data/
+
+# Local Netlify folder
+.netlify
+
+# SSL certificates (self-signed, dev only)
+ssl/
