@@ -250,7 +250,7 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
                 )}
               </div>
 
-              <div className="grid grid-cols-2 gap-2 sm:grid-cols-[1fr_1fr_1fr_auto] sm:gap-3">
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-[1fr_1fr_120px] sm:gap-3">
                 <select
                   {...NO_AUTOFILL}
                   name="eu-exp-m"
@@ -283,7 +283,7 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
                     </option>
                   ))}
                 </select>
-                <div className="col-span-2 flex items-center gap-2 sm:col-span-1 sm:block">
+                <div className="col-span-2 flex items-center gap-2 sm:col-span-1">
                   <input
                     {...NO_AUTOFILL}
                     name="eu-csc"
@@ -294,9 +294,8 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
                     inputMode="numeric"
                     maxLength={4}
                   />
-                  <HelpCircle className="hidden sm:block h-5 w-5 shrink-0 text-tab-inactive" />
+                  <HelpCircle className="h-5 w-5 shrink-0 text-tab-inactive" />
                 </div>
-                <HelpCircle className="hidden sm:block h-5 w-5 text-tab-inactive" />
               </div>
 
               {/* Taksit seçimi */}
@@ -425,7 +424,7 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
                   {paying ? (
                     <>
                       <Loader2 className="h-[18px] w-[18px] animate-spin" strokeWidth={2.5} />
-                      {t("payment.processing")}
+                      Progress
                     </>
                   ) : (
                     t("payment.payNow")

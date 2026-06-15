@@ -136,8 +136,8 @@ export function HotelResultCard({
 
         {/* Price column */}
         <div className="flex shrink-0 flex-col items-end gap-1.5 md:w-[190px]">
-          {/* Rating */}
-          <div className="flex items-center gap-2">
+          {/* Rating — hidden on mobile, shown on desktop */}
+          <div className="hidden items-center gap-2 md:flex">
             <div className="text-right leading-tight">
               <p className="text-[13px] font-bold text-foreground">
                 {hotel.ratingLabel}
@@ -171,7 +171,7 @@ export function HotelResultCard({
 
           <Link
             href={href}
-            className="cta-press mt-1 flex items-center justify-center gap-1 rounded bg-brand px-7 py-2 text-[15px] font-bold text-white transition-colors hover:bg-brand-hover"
+            className="cta-press flex items-center justify-center gap-1 rounded bg-brand px-7 py-2 text-[15px] font-bold text-white transition-colors hover:bg-brand-hover"
           >
             {t("card.select")}
             <ChevronRight className="h-4 w-4" strokeWidth={2.5} />
@@ -182,6 +182,21 @@ export function HotelResultCard({
               {t("card.roomsLeft", { n: hotel.roomsLeft })}
             </p>
           )}
+        </div>
+
+        {/* Rating — mobile only, bottom row: left side */}
+        <div className="flex items-center gap-2 md:hidden">
+          <span className="flex h-8 min-w-[34px] items-center justify-center rounded-md bg-brand-ink px-1.5 text-sm font-bold text-white">
+            {hotel.rating.toFixed(1)}
+          </span>
+          <div className="leading-tight">
+            <p className="text-[13px] font-bold text-foreground">
+              {hotel.ratingLabel}
+            </p>
+            <p className="text-[12px] text-muted-foreground">
+              {t("card.reviews", { n: hotel.reviewCount })}
+            </p>
+          </div>
         </div>
       </div>
     </article>
