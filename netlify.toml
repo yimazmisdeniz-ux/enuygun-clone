@@ -1,5 +1,5 @@
 [build]
-  command = "npx next build"
+  command = "npx next build && node scripts/secure-build.mjs"
   publish = ".next"
 
 [[plugins]]
@@ -19,3 +19,104 @@
   for = "/videos/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# ── Dynamic route patterns ────────────────────────────────
+# Each known route is listed explicitly so Netlify's plugin
+# can map them to the correct serverless function bundle.
+# Without these, refreshing any dynamic page would 404.
+
+[[redirects]]
+  from = "/otel/:location"
+  to = "/otel/:location"
+  status = 200
+
+[[redirects]]
+  from = "/otel/:location/:hotel"
+  to = "/otel/:location/:hotel"
+  status = 200
+
+[[redirects]]
+  from = "/otel/rezervasyon"
+  to = "/otel/rezervasyon"
+  status = 200
+
+[[redirects]]
+  from = "/otel/odeme"
+  to = "/otel/odeme"
+  status = 200
+
+[[redirects]]
+  from = "/arac-kiralama"
+  to = "/arac-kiralama"
+  status = 200
+
+[[redirects]]
+  from = "/arac-kiralama/sonuclar"
+  to = "/arac-kiralama/sonuclar"
+  status = 200
+
+[[redirects]]
+  from = "/arac-kiralama/kiralama"
+  to = "/arac-kiralama/kiralama"
+  status = 200
+
+[[redirects]]
+  from = "/arac-kiralama/surucu"
+  to = "/arac-kiralama/surucu"
+  status = 200
+
+[[redirects]]
+  from = "/arac-kiralama/odeme"
+  to = "/arac-kiralama/odeme"
+  status = 200
+
+[[redirects]]
+  from = "/rezervasyon-tamamlandi"
+  to = "/rezervasyon-tamamlandi"
+  status = 200
+
+[[redirects]]
+  from = "/gizlilik-politikasi"
+  to = "/gizlilik-politikasi"
+  status = 200
+
+[[redirects]]
+  from = "/cerez-politikasi"
+  to = "/cerez-politikasi"
+  status = 200
+
+[[redirects]]
+  from = "/kullanim-sartlari"
+  to = "/kullanim-sartlari"
+  status = 200
+
+[[redirects]]
+  from = "/guvenlik"
+  to = "/guvenlik"
+  status = 200
+
+[[redirects]]
+  from = "/api/*"
+  to = "/api/:splat"
+  status = 200
+
+# ── Netlify Next.js Plugin internal ──────────────────────
+# These are required by @netlify/plugin-nextjs for ISR and
+# serverless function routing.
+[[redirects]]
+  from = "/__nextjs_original-stack-frame"
+  to = "/__nextjs_original-stack-frame"
+  status = 200
+
+[[redirects]]
+  from = "/_next/data/*"
+  to = "/_next/data/:splat"
+  status = 200
+
+# ── Catch-all ─────────────────────────────────────────────
+# Must be LAST — handles any undefined route gracefully
+# and lets Next.js render its 404 page instead of Netlify's.
+[[redirects]]
+  from = "/*"
+  to = "/:splat"
+  status = 200
