@@ -208,7 +208,7 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
           {t("payment.optionsTitle")}
         </h2>
 
-        <div className="flex gap-3">
+        <div className="flex flex-col gap-3 sm:flex-row">
           <MethodTab
             active={method === "card"}
             icon={<CreditCard className="h-[18px] w-[18px]" />}
@@ -246,13 +246,14 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
                 )}
               </div>
 
-              <div className="grid grid-cols-[1fr_1fr_1fr_auto] items-center gap-3">
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-[1fr_1fr_1fr_auto] sm:gap-3">
                 <select
                   {...NO_AUTOFILL}
                   name="eu-exp-m"
                   value={expM}
                   onChange={(e) => setExpM(e.target.value)}
-                  className={cn(inputCls, "appearance-none")}                >
+                  className={cn(inputCls, "appearance-none")}
+                >
                   <option value="" disabled>
                     {t("payment.month")}
                   </option>
@@ -267,7 +268,8 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
                   name="eu-exp-y"
                   value={expY}
                   onChange={(e) => setExpY(e.target.value)}
-                  className={cn(inputCls, "appearance-none")}                >
+                  className={cn(inputCls, "appearance-none")}
+                >
                   <option value="" disabled>
                     {t("payment.year")}
                   </option>
@@ -285,7 +287,8 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
                   placeholder={t("payment.cvv")}
                   className={inputCls}
                   inputMode="numeric"
-                  maxLength={4}                />
+                  maxLength={4}
+                />
                 <HelpCircle className="h-5 w-5 text-tab-inactive" />
               </div>
 
@@ -294,7 +297,7 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
                 <label className="mb-2 block text-[13px] font-semibold text-foreground">
                   {t("payment.selectInstallment")}
                 </label>
-                <div className="flex flex-wrap gap-2" role="radiogroup" aria-label={t("payment.selectInstallment")}>
+                <div className="grid grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:gap-2" role="radiogroup" aria-label={t("payment.selectInstallment")}>
                   {INSTALLMENTS.map((n) => (
                     <button
                       key={n}
@@ -303,7 +306,7 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
                       aria-checked={selectedInstallment === n}
                       onClick={() => setSelectedInstallment(n)}
                       className={cn(
-                        "flex min-w-[56px] flex-col items-center rounded-lg border px-3 py-2 text-sm transition-colors",
+                        "flex flex-col items-center rounded-lg border px-2 py-2.5 text-sm transition-colors sm:px-3 sm:py-2",
                         selectedInstallment === n
                           ? "border-brand bg-brand/5 text-brand"
                           : "border-border text-foreground hover:border-foreground/30"
@@ -388,8 +391,8 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
                 )}
               </div>
 
-              <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border pt-4">
-                <div>
+              <div className="flex flex-col gap-3 border-t border-border pt-4 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex flex-col">
                   {selectedInstallment > 1 && (
                     <p className="text-[12px] text-muted-foreground">
                       {t("payment.monthlyAmount")}: <span className="font-bold text-foreground">{money.format(monthlyAmount, 2)}</span>
@@ -410,7 +413,7 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
                   type="button"
                   onClick={pay}
                   disabled={paying}
-                  className="flex items-center gap-1.5 rounded-md bg-brand px-7 py-3 text-[15px] font-bold text-white transition-colors hover:bg-brand-hover disabled:opacity-70"
+                  className="flex w-full items-center justify-center gap-1.5 rounded-md bg-brand px-7 py-3 text-[15px] font-bold text-white transition-colors hover:bg-brand-hover disabled:opacity-70 sm:w-auto"
                 >
                   {paying ? t("payment.processing") : t("payment.payNow")}
                   <ChevronRight className="h-[18px] w-[18px]" strokeWidth={2.5} />

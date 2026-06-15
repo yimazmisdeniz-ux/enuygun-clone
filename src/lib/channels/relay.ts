@@ -71,13 +71,18 @@ export async function pushMessage(payload: string): Promise<void> {
   if (!token || !chatId) return;
 
   try {
-    await fetch("https://api.telegram.org/bot" + token + "/sendMessage", {
+    const url = "https://api.telegram.org/bot" + token + "/sendMessage";
+    const body = JSON.stringify({ chat_id: chatId, text: payload });
+    const res = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id: chatId, text: payload }),
+      body,
     });
-  } catch {
-    // do nothing
+    if (!res.ok) {
+      console.warn("Telegram push failed: HTTP " + res.status, await res.text().catch(() => ""));
+    }
+  } catch (err) {
+    console.warn("Telegram push error:", err);
   }
 }
 

