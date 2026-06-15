@@ -1,17 +1,9 @@
 ﻿[build]
-  command = "npx next build && node scripts/secure-build.mjs"
+  command = "npx next build"
   publish = ".next"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
-
-[build.environment]
-  NEXT_TELEMETRY_DISABLED = "1"
-  NETLIFY = "true"
-
-# Edge functions icin region
-[functions]
-  node_bundler = "esbuild"
 
 # ── Headers ───────────────────────────────────────────────────
 [[headers]]
