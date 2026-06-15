@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import {
@@ -96,11 +96,14 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
   const [refNo, setRefNo] = useState("");
   const [paying, setPaying] = useState(false);
 
+  const [selectedInstallment, setSelectedInstallment] = useState(1);
+
   const cardOk =
     isValidCardNumber(card) && !!expM && !!expY && cvv.replace(/\D/g, "").length >= 3;
 
   const discount = Math.round((ctx.priceTL * appliedPct) / 100);
   const payable = ctx.priceTL - discount;
+  const monthlyAmount = payable / selectedInstallment;
 
   function applyPromo() {
     const code = promoInput.trim().toUpperCase();
@@ -286,6 +289,45 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
                 <HelpCircle className="h-5 w-5 text-tab-inactive" />
               </div>
 
+              {/* Taksit seçimi */}
+              <div>
+                <label className="mb-2 block text-[13px] font-semibold text-foreground">
+                  {t("payment.selectInstallment")}
+                </label>
+                <div className="flex flex-wrap gap-2" role="radiogroup" aria-label={t("payment.selectInstallment")}>
+                  {INSTALLMENTS.map((n) => (
+                    <button
+                      key={n}
+                      type="button"
+                      role="radio"
+                      aria-checked={selectedInstallment === n}
+                      onClick={() => setSelectedInstallment(n)}
+                      className={cn(
+                        "flex min-w-[56px] flex-col items-center rounded-lg border px-3 py-2 text-sm transition-colors",
+                        selectedInstallment === n
+                          ? "border-brand bg-brand/5 text-brand"
+                          : "border-border text-foreground hover:border-foreground/30"
+                      )}
+                    >
+                      <span className="font-bold">
+                        {n === 1 ? t("payment.singlePaymentShort") : `${n}x`}
+                      </span>
+                      <span className="mt-0.5 text-[11px] font-semibold">
+                        {money.format(payable / n, 2)}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+                {selectedInstallment > 1 && (
+                  <p className="mt-2 text-[12px] text-muted-foreground">
+                    {t("payment.monthlyPaymentInfo", {
+                      count: selectedInstallment,
+                      amount: money.format(monthlyAmount, 2),
+                    })}
+                  </p>
+                )}
+              </div>
+
               <div className="flex items-start justify-between gap-3">
                 <p className="text-[12px] leading-relaxed text-brand">
                   {t("payment.installmentHint")}
@@ -347,16 +389,23 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
               </div>
 
               <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border pt-4">
-                <p className="flex items-center gap-1 text-sm text-foreground">
-                  {t("payment.amountToPayNow")}
-                  <ChevronDown className="h-4 w-4 text-muted-foreground" />
-                  {appliedPct > 0 && (
-                    <span className="text-[13px] text-muted-foreground line-through">
-                      {money.format(ctx.priceTL, 2)}
-                    </span>
+                <div>
+                  {selectedInstallment > 1 && (
+                    <p className="text-[12px] text-muted-foreground">
+                      {t("payment.monthlyAmount")}: <span className="font-bold text-foreground">{money.format(monthlyAmount, 2)}</span>
+                    </p>
                   )}
-                  <span className="font-bold">{money.format(payable, 2)}</span>
-                </p>
+                  <p className="flex items-center gap-1 text-sm text-foreground">
+                    {t("payment.amountToPayNow")}
+                    <ChevronDown className="h-4 w-4 text-muted-foreground" />
+                    {appliedPct > 0 && (
+                      <span className="text-[13px] text-muted-foreground line-through">
+                        {money.format(ctx.priceTL, 2)}
+                      </span>
+                    )}
+                    <span className="font-bold">{money.format(payable, 2)}</span>
+                  </p>
+                </div>
                 <button
                   type="button"
                   onClick={pay}

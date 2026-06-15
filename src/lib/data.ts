@@ -359,6 +359,7 @@ export const popularRegions: Region[] = [
   { slug: "turkiye", name: "Türkiye", hotelCount: 8542, image: "/images/regions/istanbul.jpg" },
   { slug: "antalya", name: "Antalya", hotelCount: 1904, image: "/images/regions/antalya.jpeg" },
   { slug: "mugla", name: "Muğla", hotelCount: 1616, image: "/images/regions/mugla.webp" },
+  { slug: "bodrum", name: "Bodrum", hotelCount: 1187, image: "/images/regions/bodrum.jpg" },
   { slug: "izmir", name: "İzmir", hotelCount: 1264, image: "/images/regions/izmir.webp" },
   { slug: "kibris", name: "Kıbrıs", hotelCount: 312, image: "/images/regions/kibris.webp" },
 ];

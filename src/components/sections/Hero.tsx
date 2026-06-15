@@ -13,6 +13,7 @@ import {
   ChevronRight,
   Minus,
   Plus,
+  Loader2,
 } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import { Container } from "@/components/layout/Container";
@@ -197,6 +198,7 @@ export function Hero() {
   const t = useTranslations("Home");
   const locale = useLocale();
   const [activeTab, setActiveTab] = useState<TabId>("otel");
+  const [searching, setSearching] = useState(false);
 
   const [destination, setDestination] = useState("Antalya");
   // Route slug of the picked suggestion; null while the user free-types. Lets
@@ -245,6 +247,7 @@ export function Hero() {
     // input falls back to the Antalya default.
     const slug = selectedSlug ?? slugifyTr(destination);
     const target = !slug ? "antalya" : slug === "kibris" ? "kibris-45" : slug;
+    setSearching(true);
     router.push(`/otel/${target}?${params.toString()}`);
   }
 
@@ -480,10 +483,18 @@ export function Hero() {
               <button
                 type="button"
                 onClick={runSearch}
-                className="flex shrink-0 items-center justify-center gap-1.5 rounded-md bg-brand px-7 py-2.5 text-[15px] font-bold text-white transition-colors hover:bg-brand-hover"
+                disabled={searching}
+                aria-busy={searching}
+                className="flex shrink-0 items-center justify-center gap-1.5 rounded-md bg-brand px-7 py-2.5 text-[15px] font-bold text-white transition-colors hover:bg-brand-hover disabled:cursor-wait disabled:opacity-80 disabled:hover:bg-brand"
               >
-                {t("hero.hotel.search")}
-                <ChevronRight className="h-[18px] w-[18px]" strokeWidth={2.5} />
+                {searching ? (
+                  <Loader2 className="h-[18px] w-[18px] animate-spin" strokeWidth={2.5} />
+                ) : (
+                  <>
+                    {t("hero.hotel.search")}
+                    <ChevronRight className="h-[18px] w-[18px]" strokeWidth={2.5} />
+                  </>
+                )}
               </button>
             </div>
           )}

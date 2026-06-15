@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Share2, Info } from "lucide-react";
+import { Share2, Info, SlidersHorizontal, Map as MapIcon, ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/layout/Container";
 import { ResultsSearchBar } from "./ResultsSearchBar";
@@ -10,6 +10,7 @@ import { FiltersSidebar, MapCard } from "./FiltersSidebar";
 import { HotelResultCard } from "./HotelResultCard";
 import { SearchMapModal } from "./SearchMapModal";
 import type { HotelResult } from "@/lib/data";
+import { cn } from "@/lib/utils";
 
 /** Hero hotel pinned to the top of the recommended sort and badged "best choice". */
 const PINNED_SLUG = "nirvana-mediterranean-excellence-all-inclusive-351301";
@@ -73,6 +74,8 @@ export function SearchResults({
   const [priceMin, setPriceMin] = useState("");
   const [priceMax, setPriceMax] = useState("");
   const [mapOpen, setMapOpen] = useState(false);
+  // Mobile-only: filter panel collapsed by default; desktop always shows it.
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   const regionOptions = useMemo(
     () =>
@@ -120,10 +123,46 @@ export function SearchResults({
       />
 
       <Container className="py-5">
+        {/* Mobile controls — sit directly above the filter, search-again band is
+            just above this. Filter toggles open/closed; map is a compact button. */}
+        <div className="mb-4 flex items-center gap-2 md:hidden">
+          <button
+            type="button"
+            onClick={() => setFiltersOpen((v) => !v)}
+            aria-expanded={filtersOpen}
+            className="flex flex-1 items-center justify-center gap-2 rounded-md border border-border bg-white px-4 py-2.5 text-sm font-bold text-foreground"
+          >
+            <SlidersHorizontal className="h-4 w-4" />
+            {t("filters.title")}
+            <ChevronDown
+              className={cn(
+                "h-4 w-4 text-muted-foreground transition-transform",
+                filtersOpen && "rotate-180"
+              )}
+            />
+          </button>
+          <button
+            type="button"
+            onClick={() => setMapOpen(true)}
+            className="flex shrink-0 items-center gap-1.5 rounded-md border border-border bg-white px-3.5 py-2.5 text-sm font-semibold text-foreground"
+          >
+            <MapIcon className="h-4 w-4 text-brand" />
+            {t("map.show")}
+          </button>
+        </div>
+
         <div className="grid grid-cols-1 gap-6 md:grid-cols-[260px_1fr]">
           {/* Sidebar */}
-          <aside className="flex flex-col gap-4">
-            <MapCard onClick={() => setMapOpen(true)} />
+          <aside
+            className={cn(
+              "flex-col gap-4 md:flex",
+              filtersOpen ? "flex" : "hidden"
+            )}
+          >
+            {/* Big map preview is desktop-only; mobile uses the compact button above. */}
+            <div className="hidden md:block">
+              <MapCard onClick={() => setMapOpen(true)} />
+            </div>
 
             <FiltersSidebar
               regions={regionOptions}

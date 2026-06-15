@@ -23,6 +23,7 @@ import { type Room, nightsBetween } from "@/lib/data";
 import { DateRangeField } from "@/components/ui/DateRangePicker";
 import { useMoney } from "@/components/providers/CurrencyProvider";
 import { useTranslations, useLocale } from "next-intl";
+import { InstallmentModal } from "@/components/detail/InstallmentModal";
 
 /* ---------- guest helpers (Turkish/English summary — matches the search/booking flow) ---------- */
 
@@ -149,6 +150,7 @@ function RoomCard({
   const totalPrice = Math.round(o.priceTL * factor);
   const totalOld = Math.round(o.oldPriceTL * factor);
   const [showAllAmenities, setShowAllAmenities] = useState(false);
+  const [installmentOpen, setInstallmentOpen] = useState(false);
   const AMENITY_CAP = 10;
   const shownAmenities = showAllAmenities
     ? room.amenities
@@ -242,12 +244,22 @@ function RoomCard({
             >
               {t("rooms.selectCta")}
             </Link>
-            <button className="text-sm font-semibold text-[#1a7ad9] hover:underline">
+            <button
+              type="button"
+              onClick={() => setInstallmentOpen(true)}
+              className="text-sm font-semibold text-[#1a7ad9] hover:underline"
+            >
               {t("rooms.installmentOptions")}
             </button>
           </div>
         </div>
       </div>
+
+      <InstallmentModal
+        open={installmentOpen}
+        onClose={() => setInstallmentOpen(false)}
+        priceTL={totalPrice}
+      />
     </article>
   );
 }

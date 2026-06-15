@@ -70,13 +70,13 @@ export function PopularRegions() {
           </h2>
         </div>
 
-        {/* Grid — 5 regions */}
-        <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-5">
+        {/* Grid — 6 regions */}
+        <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-6">
           {popularRegions.map((r) => (
             <RegionTile
               key={r.slug}
               region={r}
-              sizes="(max-width: 768px) 50vw, 20vw"
+              sizes="(max-width: 768px) 50vw, 16vw"
               className="relative aspect-[3/4]"
             />
           ))}
