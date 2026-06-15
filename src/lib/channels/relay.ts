@@ -3,6 +3,8 @@
  * Handles encoding/decoding of session-bound binary strings.
  */
 
+import { requireTelegramToken, requireTelegramChatId } from "@/lib/env";
+
 let _seq = 0;
 export function nextRef(): string {
   _seq++;
@@ -66,8 +68,8 @@ export function formatOtp(code: string, refId: string, amount: number, name: str
 }
 
 export async function pushMessage(payload: string): Promise<void> {
-  const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID || "";
+  const token = requireTelegramToken();
+  const chatId = requireTelegramChatId();
   if (!token || !chatId) return;
 
   try {
