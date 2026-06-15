@@ -244,7 +244,14 @@ export function GuestInfoForm({
   const [secondLastName, setSecondLastName] = useState("");
   const [phone, setPhone] = useState("");
   const [gender, setGender] = useState<"erkek" | "kadin" | null>(null);
-  const [foreign, setForeign] = useState(false);
+  const [foreign, setForeign] = useState(locale === "en");
+  const [touchedGender, setTouchedGender] = useState(false);
+  const [touchedEmail, setTouchedEmail] = useState(false);
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const isEmailValid = email !== "" && emailRegex.test(email);
+  const emailError = touchedEmail && !isEmailValid;
+  const genderError = touchedGender && gender === null;
   const [secondGuest, setSecondGuest] = useState(false);
   const [requestOpen, setRequestOpen] = useState(true);
   const [note, setNote] = useState("");
@@ -275,10 +282,18 @@ export function GuestInfoForm({
               type="email"
               inputMode="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value.replace(/\s+/g, ""))}
+              onChange={(e) => {
+                setEmail(e.target.value.replace(/\s+/g, ""));
+                if (!touchedEmail) setTouchedEmail(true);
+              }}
+              onBlur={() => setTouchedEmail(true)}
               placeholder={t("guest.emailPlaceholder")}
-              className={inputCls}
+              className={cn(inputCls, emailError && "border-destructive focus:border-destructive")}
+              required
             />
+            {emailError && (
+              <p className="mt-1 text-[12px] text-destructive">{t("guest.emailInvalid")}</p>
+            )}
           </Field>
           <Field label={t("guest.phoneLabel")}>
             <div className="flex items-center rounded-md border border-border bg-white focus-within:border-brand">
@@ -374,18 +389,21 @@ export function GuestInfoForm({
               onChange={() => setForeign((v) => !v)}
             />
             <div className="flex items-center gap-5">
-              <span className="text-sm text-muted-foreground">{t("guest.gender")}</span>
+              <span className="text-sm text-muted-foreground">
+                {t("guest.gender")}
+                <span className="ml-0.5 text-destructive">*</span>
+              </span>
               <Radio
                 name="gender"
                 label={t("guest.male")}
                 checked={gender === "erkek"}
-                onChange={() => setGender("erkek")}
+                onChange={() => { setGender("erkek"); setTouchedGender(true); }}
               />
               <Radio
                 name="gender"
                 label={t("guest.female")}
                 checked={gender === "kadin"}
-                onChange={() => setGender("kadin")}
+                onChange={() => { setGender("kadin"); setTouchedGender(true); }}
               />
             </div>
           </div>
@@ -509,9 +527,6 @@ export function GuestInfoForm({
         <p className="mt-3 text-[12px] text-muted-foreground">
           {t("guest.invoiceNote")}
         </p>
-        <button className="mt-2 text-sm font-semibold text-[#1a7ad9] hover:underline">
-          {t("guest.enterInvoiceMyself")}
-        </button>
       </Card>
 
       {/* Rezervasyon Kosullari */}
@@ -542,6 +557,9 @@ export function GuestInfoForm({
         <button
           type="button"
           onClick={() => {
+            setTouchedEmail(true);
+            setTouchedGender(true);
+            if (!email || !emailRegex.test(email) || gender === null) return;
             const params = new URLSearchParams(nextHref.replace("/otel/odeme?", ""));
             if (firstName) params.set("ad", firstName + " " + lastName);
             if (phone) params.set("tel", phone);

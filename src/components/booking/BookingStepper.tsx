@@ -21,7 +21,7 @@ export async function BookingStepper({ current }: { current: number }) {
   ] as const;
   return (
     <div className="border-b border-border bg-white">
-      <Container className="py-4">
+      <Container className="py-3 md:py-4">
         <ol className="mx-auto flex max-w-2xl items-center">
           {STEPS.map((label, i) => {
             const step = i + 1;
@@ -30,26 +30,26 @@ export async function BookingStepper({ current }: { current: number }) {
             return (
               <li
                 key={label}
-                className={cn("flex items-center", !isLast && "flex-1")}
+                className={cn("flex items-center min-w-0", !isLast && "flex-1")}
               >
-                <div className="flex shrink-0 items-center gap-2">
+                <div className="flex shrink-0 items-center gap-1.5 md:gap-2">
                   <span
                     className={cn(
-                      "flex h-6 w-6 items-center justify-center rounded-full text-[12px] font-bold",
+                      "flex h-5 w-5 shrink-0 md:h-6 md:w-6 items-center justify-center rounded-full text-[10px] md:text-[12px] font-bold",
                       state === "done" && "bg-brand text-white",
                       state === "active" && "bg-brand text-white",
                       state === "todo" && "bg-tab-inactive text-white"
                     )}
                   >
                     {state === "done" ? (
-                      <Check className="h-3.5 w-3.5" strokeWidth={3} />
+                      <Check className="h-3 w-3 md:h-3.5 md:w-3.5" strokeWidth={3} />
                     ) : (
                       step
                     )}
                   </span>
                   <span
                     className={cn(
-                      "whitespace-nowrap text-[13px] font-semibold",
+                      "truncate text-[11px] md:text-[13px] font-semibold",
                       state === "todo"
                         ? "text-tab-inactive"
                         : "text-foreground"
@@ -61,7 +61,7 @@ export async function BookingStepper({ current }: { current: number }) {
                 {!isLast && (
                   <span
                     className={cn(
-                      "mx-3 h-[2px] flex-1 rounded",
+                      "mx-2 md:mx-3 h-[2px] flex-1 rounded",
                       step < current ? "bg-brand" : "bg-border"
                     )}
                   />

@@ -7,7 +7,6 @@ import {
   ChevronRight,
   ChevronLeft,
   Share2,
-  Heart,
   MapPin,
 } from "lucide-react";
 import { Container } from "@/components/layout/Container";
@@ -27,7 +26,6 @@ export function DetailNav({
 }) {
   const t = useTranslations("Detail");
   const [active, setActive] = useState("otel");
-  const [fav, setFav] = useState(false);
   const { open: openMap } = useDetailMap();
   const listingHref = `/otel/${location}`;
 
@@ -140,18 +138,6 @@ export function DetailNav({
               <button className="flex items-center gap-2 rounded-md border border-border px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-surface">
                 <Share2 className="h-[18px] w-[18px]" />
                 {t("share")}
-              </button>
-              <button
-                onClick={() => setFav((v) => !v)}
-                className="flex items-center gap-2 rounded-md border border-border px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-surface"
-              >
-                <Heart
-                  className={cn(
-                    "h-[18px] w-[18px]",
-                    fav && "fill-brand text-brand"
-                  )}
-                />
-                {t("addToFavorites")}
               </button>
             </div>
             <a

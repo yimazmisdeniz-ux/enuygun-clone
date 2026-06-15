@@ -310,7 +310,7 @@
     },
     "guest": {
       "contactTitle": "Contact Details", "freeSms": "Free SMS", "emailLabel": "Your email address",
-      "emailPlaceholder": "Your email address", "phoneLabel": "Your mobile number", "phonePlaceholder": "5",
+      "emailPlaceholder": "Your email address", "emailInvalid": "Please enter a valid email address.", "phoneLabel": "Your mobile number", "phonePlaceholder": "5",
       "countryLabel": "Country", "countryNote": "Select your country code for phone number.",
       "contactNote": "Your hotel and room details will be sent via email and free SMS.",
       "roomLabel": "Room {n}", "adultN": "Adult {n}", "firstName": "First name", "lastName": "Last name",

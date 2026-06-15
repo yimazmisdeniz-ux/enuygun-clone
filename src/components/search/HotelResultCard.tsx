@@ -6,7 +6,6 @@ import { useState } from "react";
 import {
   ChevronLeft,
   ChevronRight,
-  Heart,
   MapPin,
   Globe,
   Award,
@@ -38,7 +37,6 @@ export function HotelResultCard({
   onSelect?: (id: string) => void;
 }) {
   const [index, setIndex] = useState(0);
-  const [fav, setFav] = useState(false);
   const total = hotel.images.length;
   const href = buildHotelHref(location, hotel.slug, { checkin, checkout, guests });
   const money = useMoney();
@@ -79,20 +77,6 @@ export function HotelResultCard({
             {t("card.bestOption")}
           </span>
         )}
-
-        {/* Favorite */}
-        <button
-          onClick={() => setFav((v) => !v)}
-          aria-label={t("card.addFavorite")}
-          className="absolute right-2.5 top-2.5 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 shadow-sm transition-transform hover:scale-105"
-        >
-          <Heart
-            className={cn(
-              "h-[18px] w-[18px]",
-              fav ? "fill-brand text-brand" : "text-foreground"
-            )}
-          />
-        </button>
 
         {/* Arrows */}
         {total > 1 && (

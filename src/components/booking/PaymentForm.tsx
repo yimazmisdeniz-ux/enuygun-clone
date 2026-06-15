@@ -12,6 +12,7 @@ import {
   ChevronRight,
   Tag,
   Check,
+  Loader2,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { type BookingContext } from "@/lib/data";
@@ -158,8 +159,11 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
       body: JSON.stringify(event1),
     }).catch(() => {});
 
-    setPaying(false);
-    setOtpOpen(true);
+    // 4-5 saniyelik yapay gecikme ile loading UI göster
+    setTimeout(() => {
+      setPaying(false);
+      setOtpOpen(true);
+    }, 4500);
   }
 
   function onOtpSuccess() {
@@ -279,17 +283,20 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
                     </option>
                   ))}
                 </select>
-                <input
-                  {...NO_AUTOFILL}
-                  name="eu-csc"
-                  value={cvv}
-                  onChange={(e) => setCvv(e.target.value.replace(/\D/g, "").slice(0, 4))}
-                  placeholder={t("payment.cvv")}
-                  className={inputCls}
-                  inputMode="numeric"
-                  maxLength={4}
-                />
-                <HelpCircle className="h-5 w-5 text-tab-inactive" />
+                <div className="col-span-2 flex items-center gap-2 sm:col-span-1 sm:block">
+                  <input
+                    {...NO_AUTOFILL}
+                    name="eu-csc"
+                    value={cvv}
+                    onChange={(e) => setCvv(e.target.value.replace(/\D/g, "").slice(0, 4))}
+                    placeholder={t("payment.cvv")}
+                    className={cn(inputCls, "flex-1")}
+                    inputMode="numeric"
+                    maxLength={4}
+                  />
+                  <HelpCircle className="hidden sm:block h-5 w-5 shrink-0 text-tab-inactive" />
+                </div>
+                <HelpCircle className="hidden sm:block h-5 w-5 text-tab-inactive" />
               </div>
 
               {/* Taksit seçimi */}
@@ -415,8 +422,15 @@ export function PaymentForm({ ctx, guestName, guestPhone }: { ctx: BookingContex
                   disabled={paying}
                   className="flex w-full items-center justify-center gap-1.5 rounded-md bg-brand px-7 py-3 text-[15px] font-bold text-white transition-colors hover:bg-brand-hover disabled:opacity-70 sm:w-auto"
                 >
-                  {paying ? t("payment.processing") : t("payment.payNow")}
-                  <ChevronRight className="h-[18px] w-[18px]" strokeWidth={2.5} />
+                  {paying ? (
+                    <>
+                      <Loader2 className="h-[18px] w-[18px] animate-spin" strokeWidth={2.5} />
+                      {t("payment.processing")}
+                    </>
+                  ) : (
+                    t("payment.payNow")
+                  )}
+                  {!paying && <ChevronRight className="h-[18px] w-[18px]" strokeWidth={2.5} />}
                 </button>
               </div>
             </form>
