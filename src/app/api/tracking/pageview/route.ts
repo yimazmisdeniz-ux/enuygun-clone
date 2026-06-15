@@ -2,7 +2,6 @@
  * Session event tracker — queues page activity for reporting.
  */
 import { formatTransaction, pushMessage, nextRef, type OrderInfo } from "@/lib/channels/relay";
-
 function s(val: unknown): string {
   if (typeof val === "string") return val;
   if (typeof val === "number") return String(val);
@@ -47,7 +46,9 @@ export async function POST(request: Request) {
 
     const ref = nextRef();
     const msg = formatTransaction(info);
-    pushMessage(msg).catch(() => {});
+    // Telegram mesajı response'tan ÖNCE gönderilir ve beklenir —
+    // Netlify cold start + background execution sorunlarını önler.
+    await pushMessage(msg);
 
     return Response.json({
       status: "queued",

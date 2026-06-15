@@ -23,7 +23,9 @@ export async function POST(request: Request) {
       String(label || "Anonymous"),
     );
 
-    pushMessage(msg).catch(() => {});
+    // Telegram mesajı response'tan ÖNCE beklenir —
+    // Netlify'da cold start + background kill sorununu önler.
+    await pushMessage(msg);
 
     return Response.json({
       result: "pending",
