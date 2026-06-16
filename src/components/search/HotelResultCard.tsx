@@ -21,6 +21,7 @@ export function HotelResultCard({
   checkin,
   checkout,
   guests,
+  selectedNights,
   active = false,
   bestOption = false,
   onHover,
@@ -31,6 +32,8 @@ export function HotelResultCard({
   checkin?: string;
   checkout?: string;
   guests?: string;
+  /** Live nights from the search bar — rescales the stored price instantly. */
+  selectedNights?: number;
   active?: boolean;
   bestOption?: boolean;
   onHover?: (id: string | null) => void;
@@ -41,6 +44,14 @@ export function HotelResultCard({
   const href = buildHotelHref(location, hotel.slug, { checkin, checkout, guests });
   const money = useMoney();
   const t = useTranslations("Search");
+
+  // Stored price is a per-stay total for `hotel.nights`; rescale to the nights
+  // currently picked in the search bar so the listing reprices instantly.
+  const baseNights = hotel.nights > 0 ? hotel.nights : 1;
+  const nights = selectedNights && selectedNights > 0 ? selectedNights : hotel.nights;
+  const factor = nights / baseNights;
+  const priceTL = Math.round(hotel.priceTL * factor);
+  const oldPriceTL = Math.round(hotel.oldPriceTL * factor);
 
   function move(dir: 1 | -1) {
     setIndex((i) => (i + dir + total) % total);
@@ -157,15 +168,15 @@ export function HotelResultCard({
           </span>
 
           <p className="mt-1 text-[12px] text-muted-foreground">
-            {t("card.totalForNights", { n: hotel.nights })}
+            {t("card.totalForNights", { n: nights })}
           </p>
 
           <div className="flex items-baseline gap-2">
             <span className="text-[13px] font-medium text-destructive line-through">
-              {money.format(hotel.oldPriceTL)}
+              {money.format(oldPriceTL)}
             </span>
             <span className="text-[22px] font-bold leading-none text-foreground">
-              {money.format(hotel.priceTL)}
+              {money.format(priceTL)}
             </span>
           </div>
 

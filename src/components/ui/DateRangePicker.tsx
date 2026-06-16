@@ -257,7 +257,12 @@ function RangeCalendar({
           <button
             type="button"
             disabled={!start || !end}
-            onClick={() => onClose?.()}
+            onClick={() => {
+              // Commit the current range on apply too, so a complete selection
+              // is never lost even if the incremental onChange was missed.
+              if (start && end) onChange(toISO(start), toISO(end));
+              onClose?.();
+            }}
             className="rounded-md bg-brand px-5 py-2 text-sm font-bold text-white transition-colors hover:bg-brand-hover disabled:opacity-40"
           >
             {t("apply")}
@@ -288,6 +293,7 @@ export function DateRangeField({
   align?: "left" | "right";
 }) {
   const locale = useLocale();
+  const t = useTranslations("DatePicker");
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -317,7 +323,12 @@ export function DateRangeField({
     };
   }, [open]);
 
-  const rangeLabel = `${formatTrDate(checkIn, locale)} - ${formatTrDate(checkOut, locale)}`;
+  // Show the picked range, or a "Seçiniz" prompt until both ends are chosen —
+  // never auto-display a pre-filled range the user didn't choose.
+  const hasRange = !!checkIn && !!checkOut;
+  const rangeLabel = hasRange
+    ? `${formatTrDate(checkIn, locale)} - ${formatTrDate(checkOut, locale)}`
+    : t("placeholder");
 
   return (
     <div
@@ -333,7 +344,10 @@ export function DateRangeField({
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="w-full truncate text-left text-sm font-semibold text-foreground"
+          className={cn(
+            "w-full truncate text-left text-sm font-semibold",
+            hasRange ? "text-foreground" : "text-muted-foreground"
+          )}
         >
           {rangeLabel}
         </button>
@@ -349,6 +363,7 @@ export function DateRangeField({
             )}
           >
             <RangeCalendar
+              key={`${checkIn}-${checkOut}`}
               checkIn={checkIn}
               checkOut={checkOut}
               onChange={onChange}
@@ -372,6 +387,7 @@ export function DateRangeField({
                 </button>
               </div>
               <RangeCalendar
+                key={`${checkIn}-${checkOut}`}
                 checkIn={checkIn}
                 checkOut={checkOut}
                 onChange={onChange}

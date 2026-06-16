@@ -123,6 +123,21 @@ export function nightsBetween(checkin: string, checkout: string): number {
 }
 
 /**
+ * A sensible near-future stay (tomorrow → +3 nights) used as a fallback when a
+ * search is run without the user picking dates. Computed at call time only
+ * (e.g. inside a click handler) — never in render/initial state — so it can't
+ * cause an SSR/client hydration mismatch.
+ */
+export function fallbackStay(): { checkin: string; checkout: string } {
+  const iso = (d: Date) =>
+    `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  const now = new Date();
+  const ci = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+  const co = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 4);
+  return { checkin: iso(ci), checkout: iso(co) };
+}
+
+/**
  * Parse the guest summary display string (e.g. "2 Yetişkin, 1 Çocuk, 2 Oda")
  * back into numeric counts. Falls back to 2 adults / 1 room when absent or
  * unparseable, matching the search form defaults.

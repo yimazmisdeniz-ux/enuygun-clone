@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import { Container } from "@/components/layout/Container";
-import { popularSearchChips, formatTrDate, slugifyTr, nightsBetween } from "@/lib/data";
+import { popularSearchChips, formatTrDate, slugifyTr, nightsBetween, fallbackStay } from "@/lib/data";
 import { DateRangeField } from "@/components/ui/DateRangePicker";
 import { searchDestinations, destinationCountrySuffix, type Destination } from "@/lib/destinations";
 import { searchPickups, type Pickup } from "@/lib/pickups";
@@ -205,8 +205,9 @@ export function Hero() {
   // the input show a friendly "Antalya, Turkey" label without breaking routing.
   const [selectedSlug, setSelectedSlug] = useState<string | null>("antalya");
   const [pickup, setPickup] = useState("Sabiha Gökçen Havalimanı, İstanbul");
-  const [checkIn, setCheckIn] = useState("2026-06-06");
-  const [checkOut, setCheckOut] = useState("2026-06-09");
+  // Empty by default so the date field reads "Seçiniz" until the user picks.
+  const [checkIn, setCheckIn] = useState("");
+  const [checkOut, setCheckOut] = useState("");
   const [adults, setAdults] = useState(2);
   const [children, setChildren] = useState(0);
   const [rooms, setRooms] = useState(1);
@@ -236,10 +237,12 @@ export function Hero() {
   }, []);
 
   function runSearch() {
+    // Fall back to a near-future stay if the user searches without picking.
+    const stay = checkIn && checkOut ? { checkin: checkIn, checkout: checkOut } : fallbackStay();
     const params = new URLSearchParams({
       dest: destination || "Antalya",
-      checkin: checkIn,
-      checkout: checkOut,
+      checkin: stay.checkin,
+      checkout: stay.checkout,
       guests: guestSummary(adults, children, rooms, locale),
     });
     // Route to the picked suggestion's slug, or slugify free-typed text
@@ -252,13 +255,14 @@ export function Hero() {
   }
 
   function runCarSearch() {
+    const stay = checkIn && checkOut ? { checkin: checkIn, checkout: checkOut } : fallbackStay();
     const params = new URLSearchParams({
       pickup: pickup || "Sabiha Gökçen Havalimanı, İstanbul",
-      cin: formatTrDate(checkIn, locale),
+      cin: formatTrDate(stay.checkin, locale),
       cinT: carInTime,
-      cout: formatTrDate(checkOut, locale),
+      cout: formatTrDate(stay.checkout, locale),
       coutT: carOutTime,
-      days: String(nightsBetween(checkIn, checkOut)),
+      days: String(nightsBetween(stay.checkin, stay.checkout)),
     });
     router.push(`/arac-kiralama/sonuclar?${params.toString()}`);
   }
@@ -586,7 +590,7 @@ export function Hero() {
                   }}
                   className="w-full truncate text-left text-sm font-semibold text-foreground"
                 >
-                  {formatTrDate(checkIn, locale)} {carInTime}
+                  {checkIn ? `${formatTrDate(checkIn, locale)} ${carInTime}` : t("hero.car.time")}
                 </button>
                 {openField === "carIn" && (
                   <div className="absolute left-0 top-full z-40 mt-2 w-[260px] rounded-lg border border-border bg-white p-4 shadow-xl">
@@ -653,7 +657,7 @@ export function Hero() {
                   }}
                   className="w-full truncate text-left text-sm font-semibold text-foreground"
                 >
-                  {formatTrDate(checkOut, locale)} {carOutTime}
+                  {checkOut ? `${formatTrDate(checkOut, locale)} ${carOutTime}` : t("hero.car.time")}
                 </button>
                 {openField === "carOut" && (
                   <div className="absolute left-0 top-full z-40 mt-2 w-[260px] rounded-lg border border-border bg-white p-4 shadow-xl">

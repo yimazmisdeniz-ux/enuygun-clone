@@ -5,6 +5,7 @@
     "nights": "{count, plural, one {# gece} other {# gece}}",
     "apply": "Uygula",
     "clear": "Temizle",
+    "placeholder": "Seçiniz",
     "selectDates": "Tarih seçin",
     "selectCheckout": "Çıkış tarihini seçin"
   },

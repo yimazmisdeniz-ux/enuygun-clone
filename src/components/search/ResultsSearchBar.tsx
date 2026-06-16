@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { Search, Users, ChevronRight, MapPin, Minus, Plus } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import { Container } from "@/components/layout/Container";
-import { slugifyTr } from "@/lib/data";
+import { slugifyTr, fallbackStay } from "@/lib/data";
 import { DateRangeField } from "@/components/ui/DateRangePicker";
 import { searchDestinations, destinationCountrySuffix, type Destination } from "@/lib/destinations";
 import { cn } from "@/lib/utils";
@@ -105,15 +105,18 @@ function Stepper({
 
 export function ResultsSearchBar({
   destination: initialDest = "",
-  checkin = "2026-06-06",
-  checkout = "2026-06-09",
+  checkin = "",
+  checkout = "",
   guests,
+  onDatesChange,
 }: {
   destination?: string;
   dates?: string;
   checkin?: string;
   checkout?: string;
   guests?: string;
+  /** Bubble live date picks up so the listing can reprice instantly. */
+  onDatesChange?: (checkIn: string, checkOut: string) => void;
 }) {
   const router = useRouter();
   const t = useTranslations("Search");
@@ -155,10 +158,12 @@ export function ResultsSearchBar({
   }
 
   function runSearch() {
+    // Fall back to a near-future stay if the user searches without picking.
+    const stay = checkIn && checkOut ? { checkin: checkIn, checkout: checkOut } : fallbackStay();
     const params = new URLSearchParams({
       dest: destination || "Kıbrıs",
-      checkin: checkIn,
-      checkout: checkOut,
+      checkin: stay.checkin,
+      checkout: stay.checkout,
       guests: guestSummary(adults, children, rooms, t),
     });
     const slug = selectedSlug ?? slugifyTr(destination);
@@ -248,6 +253,7 @@ export function ResultsSearchBar({
             onChange={(ci, co) => {
               setCheckIn(ci);
               setCheckOut(co);
+              onDatesChange?.(ci, co);
             }}
             label={t("searchBar.datesLabel")}
           />

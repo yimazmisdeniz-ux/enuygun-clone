@@ -5,6 +5,7 @@
     "nights": "{count, plural, one {# night} other {# nights}}",
     "apply": "Apply",
     "clear": "Clear",
+    "placeholder": "Select",
     "selectDates": "Select dates",
     "selectCheckout": "Select check-out date"
   },

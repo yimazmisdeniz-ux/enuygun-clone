@@ -9,7 +9,7 @@ import { SortTabs, type SortKey } from "./SortTabs";
 import { FiltersSidebar, MapCard } from "./FiltersSidebar";
 import { HotelResultCard } from "./HotelResultCard";
 import { SearchMapModal } from "./SearchMapModal";
-import type { HotelResult } from "@/lib/data";
+import { nightsBetween, type HotelResult } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 /** Hero hotel pinned to the top of the recommended sort and badged "best choice". */
@@ -68,6 +68,12 @@ export function SearchResults({
   guests?: string;
 }) {
   const t = useTranslations("Search");
+  // Live dates mirrored from the search bar so the cards reprice instantly as
+  // soon as the calendar changes — before any "search again" navigation.
+  const [selCheckIn, setSelCheckIn] = useState(checkin);
+  const [selCheckOut, setSelCheckOut] = useState(checkout);
+  const selectedNights =
+    selCheckIn && selCheckOut ? nightsBetween(selCheckIn, selCheckOut) : undefined;
   const [sort, setSort] = useState<SortKey>("ilgi");
   const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
   const [selectedBoards, setSelectedBoards] = useState<Set<string>>(new Set());
@@ -120,6 +126,10 @@ export function SearchResults({
         checkin={checkin}
         checkout={checkout}
         guests={guests}
+        onDatesChange={(ci, co) => {
+          setSelCheckIn(ci);
+          setSelCheckOut(co);
+        }}
       />
 
       <Container className="py-5">
@@ -214,9 +224,10 @@ export function SearchResults({
                     key={h.slug}
                     hotel={h}
                     location={location}
-                    checkin={checkin}
-                    checkout={checkout}
+                    checkin={selCheckIn ?? checkin}
+                    checkout={selCheckOut ?? checkout}
                     guests={guests}
+                    selectedNights={selectedNights}
                     bestOption={h.slug === PINNED_SLUG}
                   />
                 ))
@@ -232,8 +243,8 @@ export function SearchResults({
         hotels={visible}
         title={title}
         location={location}
-        checkin={checkin}
-        checkout={checkout}
+        checkin={selCheckIn ?? checkin}
+        checkout={selCheckOut ?? checkout}
         guests={guests}
       />
     </>
