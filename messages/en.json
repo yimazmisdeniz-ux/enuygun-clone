@@ -23,8 +23,9 @@
   "Offer": {
     "eyebrow": "Exclusive Deal",
     "title": "<strong>{pct}%</strong> off all hotels",
-    "subtitle": "Valid for {hours} hours only — these prices won't come back.",
+    "subtitle": "Valid until the end of July — these prices won't come back.",
     "endsIn": "Ends in",
+    "daysShort": "Days",
     "hoursShort": "Hours",
     "minutesShort": "Minutes",
     "secondsShort": "Seconds"

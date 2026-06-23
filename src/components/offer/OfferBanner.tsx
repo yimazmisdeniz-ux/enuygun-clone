@@ -4,38 +4,15 @@ import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/layout/Container";
 import { cn } from "@/lib/utils";
-import { OFFER_PCT, OFFER_DURATION_HOURS } from "@/lib/offer";
+import { OFFER_PCT, OFFER_DEADLINE } from "@/lib/offer";
 
-const STORAGE_KEY = "bookera_offer_deadline";
-const DURATION_MS = OFFER_DURATION_HOURS * 60 * 60 * 1000;
+const DEADLINE_MS = new Date(OFFER_DEADLINE).getTime();
 
-/**
- * Per-visitor evergreen deadline: seeded at first visit (now + 48h) and
- * re-armed when it lapses, so the urgency window is always live.
- */
-function readDeadline(): number {
-  const now = Date.now();
-  const stored = Number(window.localStorage.getItem(STORAGE_KEY));
-  if (Number.isFinite(stored) && stored > now && stored <= now + DURATION_MS) {
-    return stored;
-  }
-  const next = now + DURATION_MS;
-  window.localStorage.setItem(STORAGE_KEY, String(next));
-  return next;
-}
-
+/** Counts down to the fixed campaign deadline (end of July). */
 function useOfferCountdown() {
   const [msLeft, setMsLeft] = useState<number | null>(null);
   useEffect(() => {
-    let deadline = readDeadline();
-    const tick = () => {
-      let left = deadline - Date.now();
-      if (left <= 0) {
-        deadline = readDeadline();
-        left = deadline - Date.now();
-      }
-      setMsLeft(left);
-    };
+    const tick = () => setMsLeft(Math.max(0, DEADLINE_MS - Date.now()));
     tick();
     const id = window.setInterval(tick, 1000);
     return () => window.clearInterval(id);
@@ -84,7 +61,8 @@ export function OfferBanner() {
 
   const total = msLeft === null ? null : Math.max(0, Math.floor(msLeft / 1000));
   const pad = (n: number) => String(n).padStart(2, "0");
-  const hours = total === null ? "--" : pad(Math.floor(total / 3600));
+  const days = total === null ? "--" : pad(Math.floor(total / 86400));
+  const hours = total === null ? "--" : pad(Math.floor((total % 86400) / 3600));
   const minutes = total === null ? "--" : pad(Math.floor((total % 3600) / 60));
   const seconds = total === null ? "--" : pad(total % 60);
 
@@ -111,7 +89,7 @@ export function OfferBanner() {
             })}
           </p>
           <p className="mt-2 text-[13px] font-normal leading-snug text-white/55">
-            {t("subtitle", { hours: OFFER_DURATION_HOURS })}
+            {t("subtitle")}
           </p>
         </div>
 
@@ -120,6 +98,8 @@ export function OfferBanner() {
             {t("endsIn")}
           </span>
           <div className="flex items-start gap-2">
+            <TimeUnit value={days} label={t("daysShort")} />
+            <span className="mt-2.5 text-[20px] font-light leading-none text-white/30">:</span>
             <TimeUnit value={hours} label={t("hoursShort")} />
             <span className="mt-2.5 text-[20px] font-light leading-none text-white/30">:</span>
             <TimeUnit value={minutes} label={t("minutesShort")} />

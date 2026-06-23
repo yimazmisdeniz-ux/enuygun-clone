@@ -13,8 +13,11 @@ export const OFFER_PCT = 50;
 /** Real discount applied to prices (kept lower so prices stay realistic). */
 export const OFFER_REAL_PCT = 20;
 
-/** Visitor-facing urgency window for the countdown (hours). */
-export const OFFER_DURATION_HOURS = 48;
+/**
+ * Fixed campaign deadline the countdown targets (local time). End of July —
+ * replaces the old rolling 48h window.
+ */
+export const OFFER_DEADLINE = "2026-07-31T23:59:59";
 
 export function offerPrice(baseTL: number): number {
   return Math.round(baseTL * (1 - OFFER_REAL_PCT / 100));

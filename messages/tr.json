@@ -23,8 +23,9 @@
   "Offer": {
     "eyebrow": "Exclusive Fırsat",
     "title": "Tüm otellerde <strong>%{pct}</strong> indirim",
-    "subtitle": "Sadece {hours} saat geçerli — bu fiyatlar bir daha gelmeyecek.",
+    "subtitle": "Temmuz sonuna kadar geçerli — bu fiyatlar bir daha gelmeyecek.",
     "endsIn": "Bitmesine",
+    "daysShort": "Gün",
     "hoursShort": "Saat",
     "minutesShort": "Dakika",
     "secondsShort": "Saniye"
