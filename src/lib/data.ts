@@ -32,23 +32,30 @@ const RAIL_COLS =
  */
 export async function getHotelRail(limit = 12, locale: string = "tr"): Promise<Hotel[]> {
   const sb = getSupabase();
-  // ~60% Antalya, remainder Cyprus. Over-fetch a little to absorb excluded slugs.
   const antalyaTake = Math.ceil(limit * 0.6);
   const cyprusTake = limit - antalyaTake;
-  const [antalya, cyprus] = await Promise.all([
-    sb
-      .from("hotels")
-      .select(RAIL_COLS)
-      .eq("region", "Antalya")
-      .order("review_count", { ascending: false })
-      .limit(antalyaTake + EXCLUDED_HOTEL_SLUGS.length),
-    sb
-      .from("hotels")
-      .select(RAIL_COLS)
-      .eq("is_cyprus", true)
-      .order("review_count", { ascending: false })
-      .limit(cyprusTake + EXCLUDED_HOTEL_SLUGS.length),
-  ]);
+
+  let antalya, cyprus;
+  try {
+    [antalya, cyprus] = await Promise.all([
+      sb
+        .from("hotels")
+        .select(RAIL_COLS)
+        .eq("region", "Antalya")
+        .order("review_count", { ascending: false })
+        .limit(antalyaTake + EXCLUDED_HOTEL_SLUGS.length),
+      sb
+        .from("hotels")
+        .select(RAIL_COLS)
+        .eq("is_cyprus", true)
+        .order("review_count", { ascending: false })
+        .limit(cyprusTake + EXCLUDED_HOTEL_SLUGS.length),
+    ]);
+  } catch {
+    // If Supabase is unavailable (missing env vars, network error, etc.),
+    // return an empty list so the UI still renders instead of 500-ing.
+    return [];
+  }
 
   const keep = (rows: { slug: string }[] | null) =>
     (rows ?? []).filter((r) => !EXCLUDED_HOTEL_SLUGS.includes(r.slug));

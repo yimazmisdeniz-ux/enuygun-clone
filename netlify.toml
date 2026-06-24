@@ -1,9 +1,14 @@
 [build]
-  command = "npx next build && node scripts/secure-build.mjs"
+  command = "npm run build:netlify"
   publish = ".next"
+
+# Pin Node.js version to 22 (matching engines field)
+[build.environment]
+  NODE_VERSION = "22"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+  # Netlify v5 plugin handles Next.js 16 proxy (Node.js runtime) — v5.15.12+
 
 [[headers]]
   for = "/_next/static/*"

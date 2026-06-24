@@ -9,7 +9,13 @@ const ONE_YEAR = 60 * 60 * 24 * 365;
  * app renders in the right language/currency from the very first SSR pass.
  * Defaults are fixed to English + Euro. Once a cookie exists (auto-seeded or
  * picked manually in the Header), it is respected and never overwritten.
+ *
+ * Netlify serverless note: NODE_ENV is typically "production" in production
+ * deploys, but we also check for the NETLIFY env var as a fallback.
  */
+const IS_PRODUCTION =
+  process.env.NODE_ENV === "production" || Boolean(process.env.NETLIFY);
+
 export function proxy(request: NextRequest): NextResponse {
   const response = NextResponse.next();
 
@@ -20,7 +26,7 @@ export function proxy(request: NextRequest): NextResponse {
     path: "/",
     maxAge: ONE_YEAR,
     sameSite: "lax" as const,
-    secure: process.env.NODE_ENV === "production",
+    secure: IS_PRODUCTION,
   };
 
   if (!hasLang) {
