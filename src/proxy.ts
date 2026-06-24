@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { LANG_COOKIE, CURRENCY_COOKIE } from "@/lib/locale";
+import { LANG_COOKIE, CURRENCY_COOKIE, localeFromAcceptLanguage } from "@/lib/locale";
 
 const ONE_YEAR = 60 * 60 * 24 * 365;
 
@@ -30,7 +30,8 @@ export function proxy(request: NextRequest): NextResponse {
   };
 
   if (!hasLang) {
-    response.cookies.set(LANG_COOKIE, "en", cookieOpts);
+    const locale = localeFromAcceptLanguage(request.headers.get("accept-language"));
+    response.cookies.set(LANG_COOKIE, locale, cookieOpts);
   }
 
   if (!hasCurrency) {
